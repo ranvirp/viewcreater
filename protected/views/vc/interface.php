@@ -48,7 +48,7 @@ EOT;
     #layoutinfo div.col-md-*{
         background-color: grey;
     }
-    
+
 </style>
 
 
@@ -110,10 +110,10 @@ EOT;
      
         $.get("<?php echo Yii::app()->createUrl('htmlreference/value') ?>"+'?'+'id='+id,
         function (data){
-        data=$.parseJSON(data);
-        el = $(data.code);
-        el.addClass('containerelement');
-        selecteddiv.append(el);
+            data=$.parseJSON(data);
+            el = $(data.code);
+            el.addClass('containerelement');
+            selecteddiv.append(el);
         });
         elements1();
     }
@@ -135,49 +135,49 @@ EOT;
             var el=$('<div></div>');
             el.html('<button class="pull-right" onclick="js:{$(this).parent(\'div\').remove();$(\'#pw\').html(\'\');delete viewelements[\''+type+viewelementscount[type]+'\'];}">x</button>\n\
        <span class="badge">'+data.dummycode+'</span>');
-            el.addClass('viewelement')
-            el.attr('viewelement-type',type)
-           // el.html(data.dummycode);
-           // el.append('<h3>'+type.toUpperCase()+'</h3>');
-           // $('#tooltip-'+type+viewelementscount[type]).tooltip(data.dummycode);
-            // var el1 = $(data.code)
-            //var doc = $(viewsrc)
-            //var el1 =doc.find('#'+$('#divid').val()).append("%("+type+viewelementscount[type]+")s")
-            //viewsrc = $("<div />").append(doc.clone()).html();
+                   el.addClass('viewelement')
+                   el.attr('viewelement-type',type)
+                   // el.html(data.dummycode);
+                   // el.append('<h3>'+type.toUpperCase()+'</h3>');
+                   // $('#tooltip-'+type+viewelementscount[type]).tooltip(data.dummycode);
+                   // var el1 = $(data.code)
+                   //var doc = $(viewsrc)
+                   //var el1 =doc.find('#'+$('#divid').val()).append("%("+type+viewelementscount[type]+")s")
+                   //viewsrc = $("<div />").append(doc.clone()).html();
          
-            selecteddiv.append(el)
-            //$('#'+$('#divid').val()).append(el)
-            el.attr('viewelement-id',type+viewelementscount[type])
-            viewelements[type+viewelementscount[type]]={};
-            viewelements[type+viewelementscount[type]]['code']=data.code;
-            viewelements[type+viewelementscount[type]]['parameters']={};
-            // $('#'+type+viewelementscount[type]).draggable();
-            var v = {id:type+viewelementscount[type]};
-            $('#pw').html(sprintf(data.parameters,v));
-            saveParameters(type+viewelementscount[type]);
-            $('.parameters').change(function(e){saveParameters(e);});
-            $('div.viewelement').click(function(e){clickviewelement($(this))});
-            // console.log(viewelements);
-            //$.post('<?php echo Yii::app()->createUrl('htmlreference/value') ?>')
+                   selecteddiv.append(el)
+                   //$('#'+$('#divid').val()).append(el)
+                   el.attr('viewelement-id',type+viewelementscount[type])
+                   viewelements[type+viewelementscount[type]]={};
+                   viewelements[type+viewelementscount[type]]['code']=data.code;
+                   viewelements[type+viewelementscount[type]]['parameters']={};
+                   // $('#'+type+viewelementscount[type]).draggable();
+                   var v = {id:type+viewelementscount[type]};
+                   $('#pw').html(sprintf(data.parameters,v));
+                   saveParameters(type+viewelementscount[type]);
+                   $('.parameters').change(function(e){saveParameters(e);});
+                   $('div.viewelement').click(function(e){clickviewelement($(this))});
+                   // console.log(viewelements);
+                   //$.post('<?php echo Yii::app()->createUrl('htmlreference/value') ?>')
          
          
-        }
-    );
-    }
-    function clickviewelement(type)
-    {
-        var eltype;
-        var id;
-        //var table =prettyPrint(type)
-        //$(table).dialog()
-        eltype=type.attr('viewelement-type')
-        id=type.attr('viewelement-id')
-        object = viewelements[id]['parameters']
-        str='';
-        for (var property in object) {
-            if (object.hasOwnProperty(property)) {
-                if(object[property].length <=20)
-                    str+='<div class="form-group">\n\
+               }
+           );
+           }
+           function clickviewelement(type)
+           {
+               var eltype;
+               var id;
+               //var table =prettyPrint(type)
+               //$(table).dialog()
+               eltype=type.attr('viewelement-type')
+               id=type.attr('viewelement-id')
+               object = viewelements[id]['parameters']
+               str='';
+               for (var property in object) {
+                   if (object.hasOwnProperty(property)) {
+                       if(object[property].length <=20)
+                           str+='<div class="form-group">\n\
               <label for="%(id)s_'+id+'">'+property+'</label>\n\
               <input type="text" class="form-control parameters" parameter-name="'+property+'" parameter-type="'+id+'"\n\
                 placeholder="Enter '+property+'" value="'+object[property]+'"/>\n\
@@ -215,7 +215,7 @@ EOT;
                   }
                   function elements1(){
                       $('#layoutinfo').find('div,nav').click(function(e){
-                           e.stopPropagation();
+                          e.stopPropagation();
                           if ($(this).parents().addBack().is('.viewelement')) return;
                           $('div').removeClass('highlight');
                           $('nav').removeClass('highlight');
@@ -223,7 +223,7 @@ EOT;
                           // alert(e.target.tagName.toLowerCase())
                           if ($(e.target).is('.containerelement')) {el= $(e.target);}
                           else
-                          if (e.target.tagName.toLowerCase()!='div') el=$(e.target).parent('div')
+                              if (e.target.tagName.toLowerCase()!='div') el=$(e.target).parent('div')
                           else el = $(e.target)
            
                           el.addClass('highlight');
@@ -368,7 +368,7 @@ EOT;
                       
                       // $('#viewsource').removeClass('hide');
                       //$('#viewsource').addClass('show');
-                       editor.setValue(getview())
+                      editor.setValue(getview())
                       //$.get('<?php echo Yii::app()->createUrl("controllers/htmlentities") ?>?src='+encodeURIComponent(viewsrc),function(data){viewsrc1=data;});
             
                       //$('#viewsource').html ('<pre class="pre-scrollable">'+viewsrc1+'</pre><script>$("pre").snippet("php",{style:"navy",showNum:false});<\/script>')
@@ -407,20 +407,20 @@ EOT;
                       $.post("<?php echo Yii::app()->createUrl('view/saveview'); ?>",{'viewpath':viewpath,'content':getview()},function(data){$('#saveviewresult').html('View Saved!')})
                   }
                   function replaceViewElementWrapper (z){
-                       if (z.children('div').length>=1)
-                           {
-                               z.children('div').each(function(){replaceViewElementWrapper($(this))});
-                           } else {
-                               attr=z.attr('viewelement-id');
-                               if (typeof attr !== 'undefined' && attr !== false){
-                          elid='%('+z.attr('viewelement-id')+')s'
-                          z.parent().append(elid)
-                          z.remove()
-                               }
-                           }
-                          //  el = $('%('+$(this).attr('viewelement-id')+')s');
-                          // $(this).html('%('+$(this).attr('viewelement-id')+')s')
+                      if (z.children('div').length>=1)
+                      {
+                          z.children('div').each(function(){replaceViewElementWrapper($(this))});
+                      } else {
+                          attr=z.attr('viewelement-id');
+                          if (typeof attr !== 'undefined' && attr !== false){
+                              elid='%('+z.attr('viewelement-id')+')s'
+                              z.parent().append(elid)
+                              z.remove()
+                          }
                       }
+                      //  el = $('%('+$(this).attr('viewelement-id')+')s');
+                      // $(this).html('%('+$(this).attr('viewelement-id')+')s')
+                  }
                   function getview()
                   {
                       var x={}
@@ -546,9 +546,9 @@ EOT;
             <?php echo Htmlreference::model()->listAllContainers() ?>
 
         </select>
-          <button class="btn btn-success btn-xs" onclick="js:addContainerElement()">Add</button>
-      
-        
+        <button class="btn btn-success btn-xs" onclick="js:addContainerElement()">Add</button>
+
+
     </div>
 
     <div id="layoutinfo" class='well col-md-6 show'>

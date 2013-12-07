@@ -2678,3 +2678,1112 @@ REQUEST_URI=/viewcreater/index.php/test
 in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/Models.php (110)
 in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (19)
 in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/07 10:26:41 [error] [exception.CException] exception 'CException' with message 'Yii application can only be created once.' in /Users/mac/framework/YiiBase.php:154
+Stack trace:
+#0 /Users/mac/framework/base/CApplication.php(123): YiiBase::setApplication(Object(CWebApplication))
+#1 /Users/mac/framework/YiiBase.php(127): CApplication->__construct('/Users/mac/htdo...')
+#2 /Users/mac/framework/YiiBase.php(100): YiiBase::createApplication('CWebApplication', '/Users/mac/htdo...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/SiteImporter.php(26) : eval()'d code(1): YiiBase::createWebApplication('/Users/mac/htdo...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/SiteImporter.php(26): eval()
+#5 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/Sites.php(71): SiteImporter::import()
+#6 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php(134): sites::importSite()
+#7 /Users/mac/framework/web/actions/CInlineAction.php(50): SitesController->actionIndex()
+#8 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#9 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#11 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#15 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/mac/framework/web/CWebApplication.php(276): CController->run('')
+#17 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites')
+#18 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#19 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/viewcreater/index.php/sites/
+---
+2013/12/07 10:35:40 [error] [exception.CException] exception 'CException' with message 'Yii application can only be created once.' in /Users/mac/framework/YiiBase.php:154
+Stack trace:
+#0 /Users/mac/framework/base/CApplication.php(123): YiiBase::setApplication(Object(CWebApplication))
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/YiiBase1.php(127): CApplication->__construct('/Users/mac/htdo...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/YiiBase1.php(100): YiiBase1::createApplication('CWebApplication', '/Users/mac/htdo...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/SiteImporter.php(26) : eval()'d code(1): YiiBase1::createWebApplication('/Users/mac/htdo...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/SiteImporter.php(26): eval()
+#5 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/Sites.php(71): SiteImporter::import()
+#6 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php(134): sites::importSite()
+#7 /Users/mac/framework/web/actions/CInlineAction.php(50): SitesController->actionIndex()
+#8 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#9 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#11 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#15 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/mac/framework/web/CWebApplication.php(276): CController->run('')
+#17 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites')
+#18 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#19 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/viewcreater/index.php/sites/
+---
+2013/12/07 10:46:51 [error] [exception.CException] exception 'CException' with message 'Yii application can only be created once.' in /Users/mac/framework/YiiBase.php:154
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/CApplication1.php(123): YiiBase::setApplication(Object(CWebApplication1))
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/YiiBase1.php(127): CApplication1->__construct('/Users/mac/htdo...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/YiiBase1.php(100): YiiBase1::createApplication('CWebApplication...', '/Users/mac/htdo...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/SiteImporter.php(26) : eval()'d code(1): YiiBase1::createWebApplication('/Users/mac/htdo...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/SiteImporter.php(26): eval()
+#5 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/Sites.php(71): SiteImporter::import()
+#6 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php(134): sites::importSite()
+#7 /Users/mac/framework/web/actions/CInlineAction.php(50): SitesController->actionIndex()
+#8 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#9 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#11 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#15 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/mac/framework/web/CWebApplication.php(276): CController->run('')
+#17 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites')
+#18 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#19 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/viewcreater/index.php/sites/
+---
+2013/12/07 13:48:34 [error] [exception.ReflectionException] exception 'ReflectionException' with message 'Method ReflectionClass::_construct() does not exist' in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php:137
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php(137): ReflectionMethod->__construct('ReflectionClass', '_construct')
+#1 /Users/mac/framework/web/actions/CInlineAction.php(50): SitesController->actionIndex()
+#2 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#9 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/mac/framework/web/CWebApplication.php(276): CController->run('')
+#11 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites')
+#12 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/viewcreater/index.php/sites/
+---
+2013/12/07 13:51:01 [error] [php] file() [<a href='function.file'>function.file</a>]: Filename cannot be empty (/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/SiteImporter.php:99)
+Stack trace:
+#0 /Users/mac/framework/web/actions/CInlineAction.php(50): SitesController->actionIndex()
+#1 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /Users/mac/framework/web/filters/CFilterChain.php(134): SitesController->runAction()
+#3 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#5 /Users/mac/framework/web/filters/CInlineFilter.php(59): SitesController->filterAccessControl()
+#6 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#8 /Users/mac/framework/web/CController.php(266): SitesController->runActionWithFilters()
+#9 /Users/mac/framework/web/CWebApplication.php(276): SitesController->run()
+#10 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#11 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/sites/
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/models/SiteImporter.php (99)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php (142)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/07 13:53:17 [error] [php] include(class x {function b(){print &quot;hi&quot;;}}.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php(136): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): SitesController->actionIndex()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/filters/CFilterChain.php(134): SitesController->runAction()
+#5 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#7 /Users/mac/framework/web/filters/CInlineFilter.php(59): SitesController->filterAccessControl()
+#8 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/framework/web/CController.php(266): SitesController->runActionWithFilters()
+#11 /Users/mac/framework/web/CWebApplication.php(276): SitesController->run()
+#12 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#13 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/sites/
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php (136)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/07 15:20:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$path;?%3E/dp.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:20:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$path;?%3E/dropdown.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:20:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$path;?%3E/main.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:20:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "{$path}".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('{$path}')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('{$path}')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/{$path}')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%7B$path%7D
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:20:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "themes".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('themes')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('themes')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/themes/sy...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/themes/system-office-1/css/print.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$path;?%3E/colorselect.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/screen.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/form.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/main.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/rbac.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/main....')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/main.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/dp.cs...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/dp.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/color...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/colorselect.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/dropd...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/dropdown.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/print.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/jquery.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/Common.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.validate.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.form.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/datepicker_lang_US.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.datepicker.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.dropdown.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/jquer...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/jquery.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.colorselect.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.form.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/Common.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.validate.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/datepicker_lang_US.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.datepicker.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.dropdown.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.colorselect.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "{$path}".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('{$path}')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('{$path}')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/{$path}')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%7B$path%7D
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "themes".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('themes')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('themes')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/themes/yi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/themes/yii-theme/css/yii-la--bottom.png
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "themes".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('themes')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('themes')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/themes/yi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/themes/yii-theme/css/yii-la--bottom.png
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$path;?%3E/dp.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$path;?%3E/main.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$path;?%3E/dropdown.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$path;?%3E/colorselect.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/jquery.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/Common.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.form.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.validate.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/datepicker_lang_US.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.datepicker.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.dropdown.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20$pathsrc;?%3E/Plugins/jquery.colorselect.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/form.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/rbac.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/screen.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/main.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/main....')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/main.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/dropd...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/dropdown.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/dp.cs...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/dp.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/color...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/colorselect.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/jquer...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/jquery.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/Common.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.form.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.validate.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/datepicker_lang_US.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.datepicker.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.dropdown.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.colorselect.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/main....')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/main.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/dp.cs...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/dp.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/dropd...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/dropdown.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('css')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('css')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/css/color...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/css/colorselect.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/jquer...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/jquery.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/Common.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.form.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.validate.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/datepicker_lang_US.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.datepicker.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.dropdown.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "src".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('src')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('src')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/src/Plugi...')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/src/Plugins/jquery.colorselect.js
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/print.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/form.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/main.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 15:21:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<".' in /Users/mac/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('<')
+#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('<')
+#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/<')
+#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/viewcreater/index.php/sites/%3C?php%20echo%20Yii::app()-%3Erequest-%3EbaseUrl;%20?%3E/css/screen.css
+HTTP_REFERER=http://localhost/viewcreater/index.php/sites/
+---
+2013/12/07 16:42:54 [error] [exception.CDbException] exception 'CDbException' with message 'Table "Functions" does not have a column named "controller".' in /Users/mac/framework/db/schema/CDbCommandBuilder.php:570
+Stack trace:
+#0 /Users/mac/framework/db/ar/CActiveRecord.php(1471): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '', Array, '`t`.')
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/FunctionsController.php(133): CActiveRecord->findAllByAttributes(Array)
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): FunctionsController->actionAllF()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/mac/framework/web/CWebApplication.php(276): CController->run('allF')
+#12 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('functions/allF')
+#13 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/viewcreater/index.php/functions/allF?controller=Hi
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+2013/12/07 16:44:25 [error] [exception.CException] exception 'CException' with message 'Property "sites.ident" is not defined.' in /Users/mac/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/mac/framework/db/ar/CActiveRecord.php(144): CComponent->__get('ident')
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php(212): CActiveRecord->__get('ident')
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): SitesController->actionAllSites()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/mac/framework/web/CWebApplication.php(276): CController->run('allsites')
+#12 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/allsites')
+#13 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/viewcreater/index.php/sites/allsites
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+2013/12/07 16:45:17 [error] [php] file_put_contents(/protected/views/.php) [<a href='function.file-put-contents'>function.file-put-contents</a>]: failed to open stream: No such file or directory (/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ViewController.php:185)
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Users/mac/framework/web/filters/CFilterChain.php(134): ViewController->runAction()
+#2 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /Users/mac/framework/web/filters/CInlineFilter.php(59): ViewController->filterAccessControl()
+#5 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#7 /Users/mac/framework/web/CController.php(266): ViewController->runActionWithFilters()
+#8 /Users/mac/framework/web/CWebApplication.php(276): ViewController->run()
+#9 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/view/saveview
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ViewController.php (185)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/07 16:49:16 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/Applications/XAMPP/xamppfiles/htdocs/viewcreater/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /Users/mac/framework/web/CAssetManager.php:116
+Stack trace:
+#0 /Users/mac/framework/web/CAssetManager.php(101): CAssetManager->setBasePath('/Applications/X...')
+#1 /Users/mac/framework/web/CAssetManager.php(219): CAssetManager->getBasePath()
+#2 /Users/mac/framework/zii/widgets/CListView.php(179): CAssetManager->publish('/Users/mac/fram...')
+#3 /Users/mac/framework/web/CBaseController.php(148): CListView->init()
+#4 /Users/mac/framework/web/CBaseController.php(173): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/views/htmlreference/index.php(17): CBaseController->widget('zii.widgets.CLi...', Array)
+#6 /Users/mac/framework/web/CBaseController.php(127): require('/Applications/X...')
+#7 /Users/mac/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/X...', Array, true)
+#8 /Users/mac/framework/web/CController.php(870): CBaseController->renderFile('/Applications/X...', Array, true)
+#9 /Users/mac/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#10 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php(149): CController->render('index', Array)
+#11 /Users/mac/framework/web/actions/CInlineAction.php(50): HtmlreferenceController->actionIndex()
+#12 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#19 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /Users/mac/framework/web/CWebApplication.php(276): CController->run('')
+#21 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('htmlreference')
+#22 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/viewcreater/index.php/htmlreference
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+2013/12/07 16:50:02 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/Applications/XAMPP/xamppfiles/htdocs/viewcreater/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /Users/mac/framework/web/CAssetManager.php:116
+Stack trace:
+#0 /Users/mac/framework/web/CAssetManager.php(101): CAssetManager->setBasePath('/Applications/X...')
+#1 /Users/mac/framework/web/CAssetManager.php(219): CAssetManager->getBasePath()
+#2 /Users/mac/framework/zii/widgets/CListView.php(179): CAssetManager->publish('/Users/mac/fram...')
+#3 /Users/mac/framework/web/CBaseController.php(148): CListView->init()
+#4 /Users/mac/framework/web/CBaseController.php(173): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/views/htmlreference/index.php(17): CBaseController->widget('zii.widgets.CLi...', Array)
+#6 /Users/mac/framework/web/CBaseController.php(127): require('/Applications/X...')
+#7 /Users/mac/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/X...', Array, true)
+#8 /Users/mac/framework/web/CController.php(870): CBaseController->renderFile('/Applications/X...', Array, true)
+#9 /Users/mac/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#10 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php(149): CController->render('index', Array)
+#11 /Users/mac/framework/web/actions/CInlineAction.php(50): HtmlreferenceController->actionIndex()
+#12 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#19 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /Users/mac/framework/web/CWebApplication.php(276): CController->run('')
+#21 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('htmlreference')
+#22 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/viewcreater/index.php/htmlreference
+---

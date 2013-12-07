@@ -109,7 +109,7 @@ class models extends CActiveRecord
             // $method = new ReflectionFunction("saveAttributes");
             //http://stackoverflow.com/questions/19653881/how-get-code-of-method-in-class?lq=1
             //preg_match_all('/function[^\{]+\{(.*)\}/Ux', file_get_contents('SiteController.php'), $matches);
-            //
+            //ÏÏ
              $res = new ReflectionMethod('Designation', 'saveAttributes');
     $start = $res->getStartLine();
 $end = $res->getEndLine();

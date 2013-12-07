@@ -66,26 +66,11 @@ class sites extends CActiveRecord
 			'ident' => 'Ident',
 		);
 	}
-
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
+	public static function importSite($siteId)
+		
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
-
-		$criteria=new CDbCriteria;
-
-		$criteria->compare('name',$this->name,true);
-
-		$criteria->compare('path',$this->path,true);
-
-		$criteria->compare('ident',$this->ident,true);
-
-		return new CActiveDataProvider('sites', array(
-			'criteria'=>$criteria,
-		));
+		$site=Sites::model()->findByPk($siteId);
+		SiteImporter::import($site);
 	}
+	
 }

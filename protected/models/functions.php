@@ -1,24 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "functions".
+ * This is the model class for table "Functions".
  *
- * The followings are the available columns in table 'functions':
+ * The followings are the available columns in table 'Functions':
  * @property integer $id
- * @property string $controller
- * @property integer $order
+ * @property string $classtype
+ * @property integer $classid
  * @property string $name
  * @property string $parameters
  * @property string $code
  * @property string $comments
  * @property integer $status
  * @property string $entry_time
+ * @property integer $start_line
+ * @property integer $end_line
  */
-class functions extends CActiveRecord
+class Functions extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
-	 * @return functions the static model class
+	 * @return Functions the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -30,7 +32,7 @@ class functions extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'functions';
+		return 'Functions';
 	}
 
 	/**
@@ -41,12 +43,13 @@ class functions extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			//array('controller, order, name, parameters, code, comments, status, entry_time', 'required'),
-			array('order, status', 'numerical', 'integerOnly'=>true),
-			array('controller, name', 'length', 'max'=>255),
+			array(' name,  start_line, end_line', 'required'),
+			array('classid, status, start_line, end_line', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>255),
+			array('parameters, comments', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, controller, order, name, parameters, code, comments, status, entry_time', 'safe', 'on'=>'search'),
+			array('id,  classid, name, parameters, code, comments, status, entry_time, start_line, end_line', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,17 +71,19 @@ class functions extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'controller' => 'Controller',
-			'order' => 'Order',
+			'classtype' => 'Classtype',
+			'classid' => 'Classid',
 			'name' => 'Name',
 			'parameters' => 'Parameters',
 			'code' => 'Code',
 			'comments' => 'Comments',
 			'status' => 'Status',
 			'entry_time' => 'Entry Time',
+			'start_line' => 'Start Line',
+			'end_line' => 'End Line',
 		);
 	}
-        public static function importFile($controller)
+	public static function importFile($controller)
         {
             $controllermodel = Controllers::model()->findByPk($controller);
             $filepath = $controllermodel->path.'/'.$controllermodel->name.'Controller.php';
@@ -138,9 +143,9 @@ preg_match_all($regex,$str,$matches);
 
 		$criteria->compare('id',$this->id);
 
-		$criteria->compare('controller',$this->controller,true);
+		$criteria->compare('classtype',$this->classtype,true);
 
-		$criteria->compare('order',$this->order);
+		$criteria->compare('classid',$this->classid);
 
 		$criteria->compare('name',$this->name,true);
 
@@ -154,7 +159,11 @@ preg_match_all($regex,$str,$matches);
 
 		$criteria->compare('entry_time',$this->entry_time,true);
 
-		return new CActiveDataProvider('functions', array(
+		$criteria->compare('start_line',$this->start_line);
+
+		$criteria->compare('end_line',$this->end_line);
+
+		return new CActiveDataProvider('Functions', array(
 			'criteria'=>$criteria,
 		));
 	}

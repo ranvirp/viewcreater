@@ -130,11 +130,24 @@ class SitesController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
+		
 	{
+		Sites::importSite(1);
+		//$x = new ReflectionClass('class x {function b(){print "hi";}}');
+		//echo Reflection::export($x);
+		//exit;
+		//$x= new ReflectionMethod('ReflectionClass','_construct');
+		//foreach ($x->getMethods() as $method)
+		//{
+		 //print_r($method);
+		//}
+		/*
 		$dataProvider=new CActiveDataProvider('sites');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+		 * 
+		 */
 	}
 
 	/**
