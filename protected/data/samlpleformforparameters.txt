@@ -1,0 +1,34 @@
+  <div class="form-group">
+    <label for="%(id)s_title">Title of Grid</label>
+    <input type="text" class="form-control parameters" parameter-name='title' type='%(id)s' placeholder="Enter Title">
+  </div>
+  <div class="form-group">
+    <label for="%(id)s_title">Table Css</label>
+    <select  class="form-control parameters" parameter-name='tablecss' type='%(id)s' >
+    <option value='table table-striped'>Striped</option>
+    <option value='table table-hover'>Hover</option>
+    <option value='table table-condensed'>Condensed</option>
+  </div>
+ <div class="form-group">
+    <label for="%(id)s_griddataprovider">GridDataProvider</label>
+    <input type="text" class="form-control parameters" parameter-name='griddataprovider' type='%(id)s' placeholder="Enter Griddataprovider Object name">
+  </div>
+  <div class="form-group">
+    <label for="%(id)s_columnarraystring">Column Array String</label>
+    <textarea rows="4" class="form-control parameters" parameter-name='columnarraystring' type='%(id)s' >array(
+        'title',          // display the 'title' attribute
+        'category.name',  // display the 'name' attribute of the 'category' relation
+        'content:html',   // display the 'content' attribute as purified HTML
+        array(            // display 'create_time' using an expression
+            'name'=>'create_time',
+            'value'=>'date("M j, Y", $data->create_time)',
+        ),
+        array(            // display 'author.username' using an expression
+            'name'=>'authorName',
+            'value'=>'$data->author->username',
+        ),
+        array(            // display a column with "view", "update" and "delete" buttons
+            'class'=>'CButtonColumn',
+        ),
+    )</textarea>
+  </div>

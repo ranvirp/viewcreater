@@ -1,0 +1,247 @@
+-- MySQL dump 10.13  Distrib 5.1.44, for apple-darwin8.11.1 (i386)
+--
+-- Host: localhost    Database: viewcreator
+-- ------------------------------------------------------
+-- Server version	5.1.44
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `controllers`
+--
+
+DROP TABLE IF EXISTS `controllers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `controllers` (
+  `site_id` varchar(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `path` text NOT NULL,
+  `code` text NOT NULL,
+  `comments` text,
+  `last_updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`site_id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `controllers`
+--
+
+LOCK TABLES `controllers` WRITE;
+/*!40000 ALTER TABLE `controllers` DISABLE KEYS */;
+INSERT INTO `controllers` VALUES ('rdp','test','/Users/mac/htdocs/rdp/protected/controllers','',NULL,'2013-11-17 11:07:28'),('rdp','utility','/Users/mac/htdocs/rdp/protected/controllers','',NULL,'2013-11-17 18:43:01');
+/*!40000 ALTER TABLE `controllers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `functions`
+--
+
+DROP TABLE IF EXISTS `functions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `functions` (
+  `controller` varchar(255) NOT NULL,
+  `order` int(11) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `parameters` text,
+  `code` text NOT NULL,
+  `comments` text,
+  `status` tinyint(4) DEFAULT NULL,
+  `entry_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`controller`,`name`),
+  UNIQUE KEY `controller` (`controller`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `functions`
+--
+
+LOCK TABLES `functions` WRITE;
+/*!40000 ALTER TABLE `functions` DISABLE KEYS */;
+INSERT INTO `functions` VALUES ('',NULL,'accessRules','()','{\r\n		return array(\r\n			array(\'allow\',  // allow all users to perform \'index\' and \'view\' actions\r\n				\'actions\'=>array(\'index\',\'view\',\'getName\',\'ExcelToModel\',\'login\',\'cal\'),\r\n				\'users\'=>array(\'*\'),\r\n			),\r\n			array(\'deny\',  // deny all users\r\n				\'users\'=>array(\'*\'),\r\n			),\r\n		);\r\n	}','',NULL,'2013-11-18 11:06:32'),('',NULL,'actionCal','()','{\r\n//Yii::import(\'application.vendors.wdCalendar.*\');\r\n//Yii::setPathOfAlias(\'src\',Yii::getPathOfAlias(\'application.vendors.wdCalendar.src\'));\r\n//Yii::setPathOfAlias(\'css\',Yii::getPathOfAlias(\'application.vendors.wdCalendar.css\'));\r\n \r\n	// $this->render(\"application.vendors.wdCalendar.sample1\");\r\n$x=	$this->renderPartial(\"cal\",array(),false,true);\r\nprint $x;\r\n}','',NULL,'2013-11-18 11:06:32'),('',NULL,'actionExcelToModel','()','{\r\n\r\nif (Yii::app()->request->isAjaxRequest) {\r\n \r\n            // get the parameter passed via ajax from the _form.php\r\n             $map = Yii::app()->request->getParam(\'map\');\r\n			 $attachment = Yii::app()->request->getParam(\'attachments\');\r\n			 $modelclass=Yii::app()->request->getParam(\'modelclass\');\r\n			  $rowbegin=Yii::app()->request->getParam(\'rowbegin\');\r\n			   $rowend=Yii::app()->request->getParam(\'rowend\');\r\n			 $attachment=explode(\",\",$attachment);\r\n			 $excelfile=$attachment[1];\r\n			 echo  json_encode(array(\'html\'=>Utility::excelToModel($modelclass,$excelfile,$rowbegin,$rowend,json_decode($map,true))));\r\n			 Yii::app()->end();\r\n            \r\n	}','',NULL,'2013-11-18 11:06:32'),('',NULL,'actionGetName','()','{\r\n	if (Yii::app()->request->isAjaxRequest) {\r\n \r\n            // get the parameter passed via ajax from the _form.php\r\n            $userid = Yii::app()->request->getParam(\'userid\');\r\n            $this->loadUser($userid);\r\n			\r\n            if ($userid != \'\')\r\n            {\r\n                echo CJSON::encode(array(\r\n                    \'error\' => \'false\',\r\n                    \'name\' => $this->_model->profile->firstname.\" \".$this->_model->profile->lastname,\r\n                ));\r\n                // exit;\r\n                Yii::app()->end();\r\n            }','',NULL,'2013-11-18 11:06:32'),('',NULL,'actionLogin','()','{\r\n  $username= $_GET[\'username\'];\r\n  $password=$_GET[\'password\'];\r\n  $userlogin = new UserLogin;\r\n  $userlogin->username=$username;\r\n  $userlogin->password=$password;\r\n  if ($userlogin->validate()) {\r\n    echo 1;\r\n  }','',NULL,'2013-11-18 11:06:32'),('',NULL,'filters','()','{\r\n		return CMap::mergeArray(parent::filters(),array(\r\n			\'accessControl\', // perform access control for CRUD operations\r\n		));\r\n	}','',NULL,'2013-11-18 11:06:31'),('',NULL,'loadModel','()','{\r\n		if($this->_model===null)\r\n		{\r\n			if(isset($_GET[\'id\']))\r\n				$this->_model=User::model()->findbyPk($_GET[\'id\']);\r\n			if($this->_model===null)\r\n				throw new CHttpException(404,\'The requested page does not exist.\');\r\n		}','',NULL,'2013-11-18 11:06:32'),('',NULL,'loadUser','($id=null)','{\r\n		if($this->_model===null)\r\n		{\r\n			if($id!==null || isset($_GET[\'id\']))\r\n				$this->_model=User::model()->findbyPk($id!==null ? $id : $_GET[\'id\']);\r\n			if($this->_model===null)\r\n				throw new CHttpException(404,\'The requested page does not exist.\');\r\n		}','',NULL,'2013-11-18 11:06:32'),('1',NULL,'actionTest','()','{\nprint \"hi\"\n}','',NULL,'2013-11-18 14:10:29'),('2',NULL,'accessRules','()','{\r\n		return array(\r\n			array(\'allow\',  // allow all users to perform \'index\' and \'view\' actions\r\n				\'actions\'=>array(\'index\',\'view\',\'getName\',\'ExcelToModel\',\'login\',\'cal\'),\r\n				\'users\'=>array(\'*\'),\r\n			),\r\n			array(\'deny\',  // deny all users\r\n				\'users\'=>array(\'*\'),\r\n			),\r\n		);\r\n	}','',NULL,'2013-11-18 11:07:44'),('2',NULL,'actionCal','()','{\r\n//Yii::import(\'application.vendors.wdCalendar.*\');\r\n//Yii::setPathOfAlias(\'src\',Yii::getPathOfAlias(\'application.vendors.wdCalendar.src\'));\r\n//Yii::setPathOfAlias(\'css\',Yii::getPathOfAlias(\'application.vendors.wdCalendar.css\'));\r\n \r\n	// $this->render(\"application.vendors.wdCalendar.sample1\");\r\n$x=	$this->renderPartial(\"cal\",array(),false,true);\r\nprint $x;\r\n}','',NULL,'2013-11-18 11:07:44'),('2',NULL,'actionExcelToModel','()','{\r\n\r\nif (Yii::app()->request->isAjaxRequest) {\r\n \r\n            // get the parameter passed via ajax from the _form.php\r\n             $map = Yii::app()->request->getParam(\'map\');\r\n			 $attachment = Yii::app()->request->getParam(\'attachments\');\r\n			 $modelclass=Yii::app()->request->getParam(\'modelclass\');\r\n			  $rowbegin=Yii::app()->request->getParam(\'rowbegin\');\r\n			   $rowend=Yii::app()->request->getParam(\'rowend\');\r\n			 $attachment=explode(\",\",$attachment);\r\n			 $excelfile=$attachment[1];\r\n			 echo  json_encode(array(\'html\'=>Utility::excelToModel($modelclass,$excelfile,$rowbegin,$rowend,json_decode($map,true))));\r\n			 Yii::app()->end();\r\n            \r\n	}','',NULL,'2013-11-18 11:07:44'),('2',NULL,'actionGetName','()','{\r\n	if (Yii::app()->request->isAjaxRequest) {\r\n \r\n            // get the parameter passed via ajax from the _form.php\r\n            $userid = Yii::app()->request->getParam(\'userid\');\r\n            $this->loadUser($userid);\r\n			\r\n            if ($userid != \'\')\r\n            {\r\n                echo CJSON::encode(array(\r\n                    \'error\' => \'false\',\r\n                    \'name\' => $this->_model->profile->firstname.\" \".$this->_model->profile->lastname,\r\n                ));\r\n                // exit;\r\n                Yii::app()->end();\r\n            }','',NULL,'2013-11-18 11:07:44'),('2',NULL,'actionLogin','()','{\r\n  $username= $_GET[\'username\'];\r\n  $password=$_GET[\'password\'];\r\n  $userlogin = new UserLogin;\r\n  $userlogin->username=$username;\r\n  $userlogin->password=$password;\r\n  if ($userlogin->validate()) {\r\n    echo 1;\r\n  }','',NULL,'2013-11-18 11:07:44'),('2',NULL,'filters','()','{\r\n		return CMap::mergeArray(parent::filters(),array(\r\n			\'accessControl\', // perform access control for CRUD operations\r\n		));\r\n	}','',NULL,'2013-11-18 11:07:44'),('2',NULL,'loadModel','()','{\r\n		if($this->_model===null)\r\n		{\r\n			if(isset($_GET[\'id\']))\r\n				$this->_model=User::model()->findbyPk($_GET[\'id\']);\r\n			if($this->_model===null)\r\n				throw new CHttpException(404,\'The requested page does not exist.\');\r\n		}','',NULL,'2013-11-18 11:07:44'),('2',NULL,'loadUser','($id=null)','{\r\n		if($this->_model===null)\r\n		{\r\n			if($id!==null || isset($_GET[\'id\']))\r\n				$this->_model=User::model()->findbyPk($id!==null ? $id : $_GET[\'id\']);\r\n			if($this->_model===null)\r\n				throw new CHttpException(404,\'The requested page does not exist.\');\r\n		}','',NULL,'2013-11-18 11:07:44');
+/*!40000 ALTER TABLE `functions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `htmlreference`
+--
+
+DROP TABLE IF EXISTS `htmlreference`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `htmlreference` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cssframeworkname` varchar(255) NOT NULL DEFAULT 'bootstrap3',
+  `htmltype` varchar(255) NOT NULL,
+  `code` text NOT NULL,
+  `parameters` text NOT NULL,
+  `dummycode` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cssframeworkname` (`cssframeworkname`,`htmltype`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `htmlreference`
+--
+
+LOCK TABLES `htmlreference` WRITE;
+/*!40000 ALTER TABLE `htmlreference` DISABLE KEYS */;
+INSERT INTO `htmlreference` VALUES (1,'bootstrap3','accordion','<?php\r\n$this->widget(\'zii.widgets.jui.CJuiAccordion\', array(\r\n      \'panels\'=>%(panels)s,\r\n      \r\n      \'options\'=>%(options)s\r\n  ));\r\n?>','array(array(\"nv\",\"panels:Panels\",\'name:Panel Name\',\'value:panel content\'),array(\'nv\',\'options:Options\',\'name:Option Name\',\'value:Value Name\'))',' <div class=\"col-md-3\">\r\n        <h5>narrow by:</h5>\r\n\r\n        <div class=\"panel-group\" id=\"accordion\">\r\n\r\n            <!-- CATEGORY\r\n            ================================================== -->\r\n            <div class=\"panel panel-default\">\r\n                <div class=\"panel-heading\">\r\n                    <h4 class=\"panel-title\">\r\n                        <a class=\"accordion-toggle\" data-toggle=\"collapse\" href=\"#collapseCategory\">\r\n                            <i class=\"glyphicon glyphicon-collapse-down\"></i> category\r\n                        </a>\r\n                    </h4>\r\n                </div> <!-- panel-heading -->\r\n\r\n                <div id=\"collapseCategory\" class=\"panel-collapse collapse in\">\r\n                    <div class=\"panel-body\">\r\n                        <p>[workflow]</p>\r\n                    </div> <!-- panel-body -->\r\n                </div> <!-- panel-collapse -->\r\n            </div> <!-- panel -->\r\n\r\n        </div> <!-- panel-group -->\r\n\r\n    </div> <!-- col -->'),(2,'bootstrap3','autocomplete','  <?php\r\n    $this->widget(\'zii.widgets.jui.CJuiAutoComplete\', array(\r\n		\'name\'=>\'%(name)s\',\r\n		\'source\'=>%(source)s,\r\n		// additional javascript options for the autocomplete plugin\r\n		\'options\'=>array(\r\n			\'minLength\'=>\'%(minlength)s\',\r\n		),\r\n\r\n		\r\n	));\r\n	?>','array(\"name:Name\",\"source:Source\",\"minlength:Min Length\")','<div><input placeholder=\"Date Picker\"></div>'),(3,'bootstrap3','checkbox','<div class=\"checkbox\">\r\n    <label>\r\n      <input name=\'%(name)s\' type=\"checkbox\"> %(text)s\r\n    </label>\r\n  </div>','array(\'name:Name\',\'text:Text\')','<input type=\"checkbox\"/>'),(4,'bootstrap3','checkboxesinline','<?php\r\n$checkboxesinlinearray=%(checkboxesinlinearray)s;\r\nforeach ($checkboxesinlinearray as $checkboxes)\r\n{\r\n  echo \'<label class=\"checkbox-inline\">\r\n<input type=\"checkbox\" id=\"\'.$checkboxes[\'id\'].\'\" value=\"\'.$checkboxes[\'value\'].\'\">\'.$checkboxes[\'label\'].\'</label>\';\r\n}\r\n?>\r\n','array(array(\'mult\',\'checkboxesinlinearray:Checkboxes Details\',\'id:Id\',\'value:Value\',\'label:Label\'))','<label class=\"checkbox-inline\">\r\n  <input type=\"checkbox\" id=\"inlineCheckbox1\" value=\"option1\"> 1\r\n</label>\r\n<label class=\"checkbox-inline\">\r\n  <input type=\"checkbox\" id=\"inlineCheckbox2\" value=\"option2\"> 2\r\n</label>\r\n<label class=\"checkbox-inline\">\r\n  <input type=\"checkbox\" id=\"inlineCheckbox3\" value=\"option3\"> 3\r\n</label>\r\n'),(5,'bootstrap3','datepicker','<?php\r\n    $this->widget(\'zii.widgets.jui.CJuiDatePicker\', array(\r\n		\'name\'=>\'%(name)s\',\r\n		\r\n		\'options\'=>array(\r\n			\'showAnim\'=>\'%(showanim)s\',\r\n		),\r\n		\'htmlOptions\'=>%(htmlOptions)s\r\n	));\r\n	?>','array(\'name:Name\',\'showanim:Animation\',array(\'nv\',\'htmlOptions:Html Otions\',\'name:html option name\',\'value:html option Value\'))','<div>Date:<input/></div>'),(6,'bootstrap3','file','<div class=\"form-group\">\r\n    <label for=\"%(name)s\">%(label)s</label>\r\n    <input type=\"file\" name=\"%(name)s\">\r\n<p class=\"help-block\">%(helptext)</p>\r\n  </div>','array(\'name:Name\',\'label:Label\',\'helptext:Help Text\')','<input type=\'file\' />'),(7,'bootstrap3','formbegin','<form role=\"form\" method=\"%(method)s\" action=\"<?php echo $this->createUrl(\'%(action)s\')?>\">\r\n','array(\"\'method:Method\',(\'post\',\'get\')\",\"action:Action\")','<form>'),(8,'bootstrap3','grid','<?php $this->widget(\'zii.widgets.grid.CGridView\', array(\r\n			/*\'type\'=>\'striped bordered condensed\',*/\r\n			\'itemsCssClass\'=>\'%(tablecss)s\',\r\n			\'dataProvider\'=>$%(griddataprovider)s,\r\n			\'template\'=>\"{items}\",\r\n			\'columns\'=>%(columnarraystring)s,\r\n		)); ?>','  <div class=\"form-group\">\r\n    <label for=\"%(id)s_title\">Title of Grid</label>\r\n    <input type=\"text\" class=\"form-control parameters\" parameter-name=\'title\' parameter-type=\'%(id)s\' placeholder=\"Enter Title\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"%(id)s_title\">Table Css</label>\r\n    <select  class=\"form-control parameters\" parameter-name=\'tablecss\' parameter-type=\'%(id)s\' >\r\n    <option value=\'table table-striped\'>Striped</option>\r\n    <option value=\'table table-hover\'>Hover</option>\r\n    <option value=\'table table-condensed\'>Condensed</option>\r\n  </div>\r\n <div class=\"form-group\">\r\n    <label for=\"%(id)s_griddataprovider\">GridDataProvider</label>\r\n    <input type=\"text\" class=\"form-control parameters\" parameter-name=\'griddataprovider\' parameter-type=\'%(id)s\' placeholder=\"Enter Griddataprovider Object name\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"%(id)s_columnarraystring\">Column Array String</label>\r\n    <textarea rows=\"4\" class=\"form-control parameters\" parameter-name=\'columnarraystring\' parameter-type=\'%(id)s\' >array(\r\n        \'title\',          // display the \'title\' attribute\r\n        \'category.name\',  // display the \'name\' attribute of the \'category\' relation\r\n        \'content:html\',   // display the \'content\' attribute as purified HTML\r\n        array(            // display \'create_time\' using an expression\r\n            \'name\'=>\'create_time\',\r\n            \'value\'=>\'date(\"M j, Y\", $data->create_time)\',\r\n        ),\r\n        array(            // display \'author.username\' using an expression\r\n            \'name\'=>\'authorName\',\r\n            \'value\'=>\'$data->author->username\',\r\n        ),\r\n        array(            // display a column with \"view\", \"update\" and \"delete\" buttons\r\n            \'class\'=>\'CButtonColumn\',\r\n        ),\r\n    )</textarea>\r\n  </div>','<div class=\"col-md-12\">\r\n<table class=\"table table-hover\">\r\n        <thead>\r\n          <tr>\r\n            <th>#</th>\r\n            <th>First Name</th>\r\n            <th>Last Name</th>\r\n            <th>Username</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr>\r\n            <td>1</td>\r\n            <td>Mark</td>\r\n            <td>Otto</td>\r\n            <td>@mdo</td>\r\n          </tr>\r\n          <tr>\r\n            <td>2</td>\r\n            <td>Jacob</td>\r\n            <td>Thornton</td>\r\n            <td>@fat</td>\r\n          </tr>\r\n          <tr>\r\n            <td>3</td>\r\n            <td colspan=\"2\">Larry the Bird</td>\r\n            <td>@twitter</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n</div>'),(9,'bootstrap3','inputtext',' <div class=\"form-group\">\r\n    <label for=\"%(name)s\">%(label)s</label>\r\n    <input type=\"text\" class=\"form-control\" name=\"%(name)s\" placeholder=\"%(placeholder)s\">\r\n  </div>','array(\"name:Name\",\"label:Label\",\'placeholder:Placeholder\')',' <div class=\"form-group\">\r\n    <label for=\"exampleInputEmail1\">Email address</label>\r\n    <input type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Enter input\">\r\n  </div>'),(10,'bootstrap3','radiosinline','<?php\r\n$radiosinlinearray=%(radiosinlinearray)s;\r\nforeach ($radiosinlinearray as $radios)\r\n{\r\n  echo \'<label class=\"radio-inline\">\r\n<input type=\"radio\" name=\"%(name)s\" id=\"\'.$radios[\'id\'].\'\" value=\"\'.$radios[\'value\'].\'\">\'.$radios[\'label\'].\'</label>\';\r\n}\r\n?>','array(array(\'mult\',\'radiosinlinearray:Radio Details\',\'id:Id\',\'value:Value\',\'label:Label\'))','<div class=\"radio\">\r\n  <label>\r\n    <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\" checked>\r\n    Option one is this and that&mdash;be sure to include why it\'s great\r\n  </label>\r\n</div>\r\n<div class=\"radio\">\r\n  <label>\r\n    <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"option2\">\r\n    Option two can be something else and selecting it will deselect option one\r\n  </label>\r\n</div>'),(11,'bootstrap3','radiosinlinesource','<?php\r\n$radiosinlinearray=$%(radiosinlinearray)s;\r\nforeach ($radiosinlinearray as $radios)\r\n{\r\n  echo \'<label class=\"radio-inline\">\r\n<input type=\"radio\" name=\"%(name)s\" id=\"\'.$radios[\'id\'].\'\" value=\"\'.$radios[\'value\'].\'\">\'.$radios[\'label\'].\'</label>\';\r\n}\r\n?>','array(\'name:Name\',\'radiosinlinearray:Array variable for radios data\')','<div class=\"radio\">\r\n  <label>\r\n    <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\" checked>\r\n    Option one is this and that&mdash;be sure to include why it\'s great\r\n  </label>\r\n</div>\r\n<div class=\"radio\">\r\n  <label>\r\n    <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"option2\">\r\n    Option two can be something else and selecting it will deselect option one\r\n  </label>\r\n</div>'),(12,'bootstrap3','submitbutton','<button type=\"submit\" class=\"btn btn-%(buttontype)s\">%(buttontext)s</button>','array(\"\'buttontype:Button Type\',(\'default\',\'warning\',\'success\')\",\'buttontext:Button Text\')','<button>Submit</button>'),(13,'bootstrap3','textarea','<div class=\"form-group\">\r\n    <label  for=\"%(name)s\">%(label)s</label>\r\n<textarea class=\"form-control\" rows=\"%(rows)s\" name=\"%(name)s\"></textarea>\r\n</div>\r\n','array(\'name:Name\',\'label:Label\',\'rows:Rows\')','<textarea></textarea>'),(14,'bootstrap3','endform','</form>','','<span>End Form </span>'),(21,'bootstrap3','helpblock','<span class=\"help-block\">%(helptext)s</span>\r\n','array(\'helptext:HelpText\')','<span class=\"help-block\">A block of help text that breaks onto a new line and may extend beyond one line.</span>\r\n'),(22,'bootstrap3','helpblocksource','<span class=\"help-block\"><?php echo $%(source)s?></span>\r\n','array(\'source:Source Variable\')','<span class=\"help-block\">A block of help text that breaks onto a new line and may extend beyond one line.</span>\r\n'),(23,'bootstrap3','glyphicons','<button type=\"button\" class=\"btn btn-default <?php $size=%(size)s; if ($size !=\'\') echo \'btn-\'.$size; ?>\">\r\n  <span class=\"glyphicon %(type)s\"></span> %(text)s\r\n</button>\r\n','array(\"\'size:Size\',(\'\',\'lg\',\'sm\',\'xs\')\",\"\'type:Type\',(\'glyphicon-adjust\',\'glyphicon-align-center\',\'glyphicon-align-justify\',\'glyphicon-align-left\',\'glyphicon-align-right\',\'glyphicon-arrow-down\',\'glyphicon-arrow-left\',\'glyphicon-arrow-right\',\'glyphicon-arrow-up\',\'glyphicon-asterisk\',\'glyphicon-backward\',\'glyphicon-ban-circle\',\'glyphicon-barcode\',\'glyphicon-bell\',\'glyphicon-bold\',\'glyphicon-book\',\'glyphicon-bookmark\',\'glyphicon-briefcase\',\'glyphicon-bullhorn\',\'glyphicon-calendar\',\'glyphicon-camera\',\'glyphicon-certificate\',\'glyphicon-check\',\'glyphicon-chevron-down\',\'glyphicon-chevron-left\',\'glyphicon-chevron-right\',\'glyphicon-chevron-up\',\'glyphicon-circle-arrow-down\',\'glyphicon-circle-arrow-left\',\'glyphicon-circle-arrow-right\',\'glyphicon-circle-arrow-up\',\'glyphicon-cloud\',\'glyphicon-cloud-download\',\'glyphicon-cloud-upload\',\'glyphicon-cog\',\'glyphicon-collapse-down\',\'glyphicon-collapse-up\',\'glyphicon-comment\',\'glyphicon-compressed\',\'glyphicon-copyright-mark\',\'glyphicon-credit-card\',\'glyphicon-cutlery\',\'glyphicon-dashboard\',\'glyphicon-download\',\'glyphicon-download-alt\',\'glyphicon-earphone\',\'glyphicon-edit\',\'glyphicon-eject\',\'glyphicon-envelope\',\'glyphicon-euro\',\'glyphicon-exclamation-sign\',\'glyphicon-expand\',\'glyphicon-export\',\'glyphicon-eye-close\',\'glyphicon-eye-open\',\'glyphicon-facetime-video\',\'glyphicon-fast-backward\',\'glyphicon-fast-forward\',\'glyphicon-file\',\'glyphicon-film\',\'glyphicon-filter\',\'glyphicon-fire\',\'glyphicon-flag\',\'glyphicon-flash\',\'glyphicon-floppy-disk\',\'glyphicon-floppy-open\',\'glyphicon-floppy-remove\',\'glyphicon-floppy-save\',\'glyphicon-floppy-saved\',\'glyphicon-folder-close\',\'glyphicon-folder-open\',\'glyphicon-font\',\'glyphicon-forward\',\'glyphicon-fullscreen\',\'glyphicon-gbp\',\'glyphicon-gift\',\'glyphicon-glass\',\'glyphicon-globe\',\'glyphicon-hand-down\',\'glyphicon-hand-left\',\'glyphicon-hand-right\',\'glyphicon-hand-up\',\'glyphicon-hd-video\',\'glyphicon-hdd\',\'glyphicon-header\',\'glyphicon-headphones\',\'glyphicon-heart\',\'glyphicon-heart-empty\',\'glyphicon-home\',\'glyphicon-import\',\'glyphicon-inbox\',\'glyphicon-indent-left\',\'glyphicon-indent-right\',\'glyphicon-info-sign\',\'glyphicon-italic\',\'glyphicon-leaf\',\'glyphicon-link\',\'glyphicon-list\',\'glyphicon-list-alt\',\'glyphicon-lock\',\'glyphicon-log-in\',\'glyphicon-log-out\',\'glyphicon-magnet\',\'glyphicon-map-marker\',\'glyphicon-minus\',\'glyphicon-minus-sign\',\'glyphicon-move\',\'glyphicon-music\',\'glyphicon-new-window\',\'glyphicon-off\',\'glyphicon-ok\',\'glyphicon-ok-circle\',\'glyphicon-ok-sign\',\'glyphicon-open\',\'glyphicon-paperclip\',\'glyphicon-pause\',\'glyphicon-pencil\',\'glyphicon-phone\',\'glyphicon-phone-alt\',\'glyphicon-picture\',\'glyphicon-plane\',\'glyphicon-play\',\'glyphicon-play-circle\',\'glyphicon-plus\',\'glyphicon-plus-sign\',\'glyphicon-print\',\'glyphicon-pushpin\',\'glyphicon-qrcode\',\'glyphicon-question-sign\',\'glyphicon-random\',\'glyphicon-record\',\'glyphicon-refresh\',\'glyphicon-registration-mark\',\'glyphicon-remove\',\'glyphicon-remove-circle\',\'glyphicon-remove-sign\',\'glyphicon-repeat\',\'glyphicon-resize-full\',\'glyphicon-resize-horizontal\',\'glyphicon-resize-small\',\'glyphicon-resize-vertical\',\'glyphicon-retweet\',\'glyphicon-road\',\'glyphicon-save\',\'glyphicon-saved\',\'glyphicon-screenshot\',\'glyphicon-sd-video\',\'glyphicon-search\',\'glyphicon-send\',\'glyphicon-share\',\'glyphicon-share-alt\',\'glyphicon-shopping-cart\',\'glyphicon-signal\',\'glyphicon-sort\',\'glyphicon-sort-by-alphabet\',\'glyphicon-sort-by-alphabet-alt\',\'glyphicon-sort-by-attributes\',\'glyphicon-sort-by-attributes-alt\',\'glyphicon-sort-by-order\',\'glyphicon-sort-by-order-alt\',\'glyphicon-sound-5-1\',\'glyphicon-sound-6-1\',\'glyphicon-sound-7-1\',\'glyphicon-sound-dolby\',\'glyphicon-sound-stereo\',\'glyphicon-star\',\'glyphicon-star-empty\',\'glyphicon-stats\',\'glyphicon-step-backward\',\'glyphicon-step-forward\',\'glyphicon-stop\',\'glyphicon-subtitles\',\'glyphicon-tag\',\'glyphicon-tags\',\'glyphicon-tasks\',\'glyphicon-text-height\',\'glyphicon-text-width\',\'glyphicon-th\',\'glyphicon-th-large\',\'glyphicon-th-list\',\'glyphicon-thumbs-down\',\'glyphicon-thumbs-up\',\'glyphicon-time\',\'glyphicon-tint\',\'glyphicon-tower\',\'glyphicon-transfer\',\'glyphicon-trash\',\'glyphicon-tree-conifer\',\'glyphicon-tree-deciduous\',\'glyphicon-unchecked\',\'glyphicon-upload\',\'glyphicon-usd\',\'glyphicon-user\',\'glyphicon-volume-down\',\'glyphicon-volume-off\',\'glyphicon-volume-up\',\'glyphicon-warning-sign\',\'glyphicon-wrench\',\'glyphicon-zoom-in\',\'glyphicon-zoom-out\',\'glyphicon-align-left\',\'glyphicon-align-center\',\'glyphicon-align-right\',\'glyphicon-align-justify\',\'glyphicon-star\',\'glyphicon-star\',\'glyphicon-star\',\'glyphicon-star\')\",\'text:Text\')','     <button type=\"button\" class=\"btn btn-default btn-lg\">\r\n  <span class=\"glyphicon glyphicon-star\"></span> Star\r\n</button>\r\n'),(24,'bootstrap3','button','<button type=\"button\" class=\"btn btn-%(type)s <?php $size=%(size)s; if ($size !=\'\') echo \'btn-\'.$size; ?> <?php $block=%(block)s; if ($block !=\'n\') echo \'btn-block\'; ?>\">%(text)s</button>','array(\"\'size:Size\',(\'\',\'lg\',\'sm\',\'xs\')\",\"\'block:Block\',(\'y\',\'n\')\",\"\'type:Type\',(\'default\',\'primary\',\'info\',\'warning\',\'danger\')\",\'text:Text\')','      <button type=\"button\" class=\"btn btn-default\">Default</button>\r\n                        '),(28,'bootstrap3','dropdownmenu','<div class=\"dropdown\">\r\n  <button class=\"btn dropdown-toggle\" type=\"button\" id=\"%(id)s\" data-toggle=\"dropdown\">\r\n    %(menuheader)s\r\n    <span class=\"caret\"></span>\r\n  </button>\r\n  <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"%(id)s\">\r\n<?php\r\n$menuitems=%(menuitems)s;\r\nforeach ($menuitems as $menuitem) {\r\nif ($menuitem[\'header\']!=\'\') {\r\n     echo \'<li role=\"presentation\" class=\"dropdown-header\">\'.$menuitem[\'header\'].\"</li>\\n\";\r\n} elseif ($menuitem[\'divider\']==\'y\'){\r\n  echo \'<li role=\"presentation\" class=\"divider\"></li>\'.\"\\n\";\r\n} else {\r\necho \'<li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"\'.$menuitem[\'href\'].\'\">\'.$menuitem[\'text\'].\'</a></li>\'.\"\\n\";\r\n}\r\n}\r\n?>\r\n  </ul>\r\n</div>\r\n','array(\'id:Id\',\'menuheader:MenuHeader\',array(\'mult\',\'menuitems:MenuItems\',\'href:href\',\'text:text\',\'header:header\',\"\'divider:divider\',(\'y\',\'n\')\"))','                                                <div class=\"dropdown\">\r\n  <button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\">\r\n    Dropdown\r\n    <span class=\"caret\"></span>\r\n  </button>\r\n  <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu1\">\r\n    <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">Action</a></li>\r\n    <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">Another action</a></li>\r\n    <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">Something else here</a></li>\r\n    <li role=\"presentation\" class=\"divider\"></li>\r\n    <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">Separated link</a></li>\r\n  </ul>\r\n</div>\r\n'),(30,'bootstrap3','navbardefault','<nav class=\"navbar navbar-default\" role=\"navigation\">\r\n  <!-- Brand and toggle get grouped for better mobile display -->\r\n  <div class=\"navbar-header\">\r\n    <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\r\n      <span class=\"sr-only\">Toggle navigation</span>\r\n      <span class=\"icon-bar\"></span>\r\n      <span class=\"icon-bar\"></span>\r\n      <span class=\"icon-bar\"></span>\r\n    </button>\r\n    <a class=\"navbar-brand\" href=\"#\">Brand</a>\r\n  </div>\r\n\r\n  <!-- Collect the nav links, forms, and other content for toggling -->\r\n  <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n    <ul class=\"nav navbar-nav\">\r\n      <li class=\"active\"><a href=\"#\">Link</a></li>\r\n      <li><a href=\"#\">Link</a></li>\r\n      <li class=\"dropdown\">\r\n        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Dropdown <b class=\"caret\"></b></a>\r\n        <ul class=\"dropdown-menu\">\r\n          <li><a href=\"#\">Action</a></li>\r\n          <li><a href=\"#\">Another action</a></li>\r\n          <li><a href=\"#\">Something else here</a></li>\r\n          <li class=\"divider\"></li>\r\n          <li><a href=\"#\">Separated link</a></li>\r\n          <li class=\"divider\"></li>\r\n          <li><a href=\"#\">One more separated link</a></li>\r\n        </ul>\r\n      </li>\r\n    </ul>\r\n    <form class=\"navbar-form navbar-left\" role=\"search\">\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\r\n      </div>\r\n      <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n    </form>\r\n    <ul class=\"nav navbar-nav navbar-right\">\r\n      <li><a href=\"#\">Link</a></li>\r\n      <li class=\"dropdown\">\r\n        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Dropdown <b class=\"caret\"></b></a>\r\n        <ul class=\"dropdown-menu\">\r\n          <li><a href=\"#\">Action</a></li>\r\n          <li><a href=\"#\">Another action</a></li>\r\n          <li><a href=\"#\">Something else here</a></li>\r\n          <li class=\"divider\"></li>\r\n          <li><a href=\"#\">Separated link</a></li>\r\n        </ul>\r\n      </li>\r\n    </ul>\r\n  </div><!-- /.navbar-collapse -->\r\n</nav>\r\n','array()','      <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n  <!-- Brand and toggle get grouped for better mobile display -->\r\n  <div class=\"navbar-header\">\r\n    <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\r\n      <span class=\"sr-only\">Toggle navigation</span>\r\n      <span class=\"icon-bar\"></span>\r\n      <span class=\"icon-bar\"></span>\r\n      <span class=\"icon-bar\"></span>\r\n    </button>\r\n    <a class=\"navbar-brand\" href=\"#\">Brand</a>\r\n  </div>\r\n\r\n  <!-- Collect the nav links, forms, and other content for toggling -->\r\n  <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n    <ul class=\"nav navbar-nav\">\r\n      <li class=\"active\"><a href=\"#\">Link</a></li>\r\n      <li><a href=\"#\">Link</a></li>\r\n      <li class=\"dropdown\">\r\n        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Dropdown <b class=\"caret\"></b></a>\r\n        <ul class=\"dropdown-menu\">\r\n          <li><a href=\"#\">Action</a></li>\r\n          <li><a href=\"#\">Another action</a></li>\r\n          <li><a href=\"#\">Something else here</a></li>\r\n          <li class=\"divider\"></li>\r\n          <li><a href=\"#\">Separated link</a></li>\r\n          <li class=\"divider\"></li>\r\n          <li><a href=\"#\">One more separated link</a></li>\r\n        </ul>\r\n      </li>\r\n    </ul>\r\n    <form class=\"navbar-form navbar-left\" role=\"search\">\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\r\n      </div>\r\n      <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n    </form>\r\n    <ul class=\"nav navbar-nav navbar-right\">\r\n      <li><a href=\"#\">Link</a></li>\r\n      <li class=\"dropdown\">\r\n        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Dropdown <b class=\"caret\"></b></a>\r\n        <ul class=\"dropdown-menu\">\r\n          <li><a href=\"#\">Action</a></li>\r\n          <li><a href=\"#\">Another action</a></li>\r\n          <li><a href=\"#\">Something else here</a></li>\r\n          <li class=\"divider\"></li>\r\n          <li><a href=\"#\">Separated link</a></li>\r\n        </ul>\r\n      </li>\r\n    </ul>\r\n  </div><!-- /.navbar-collapse -->\r\n</nav>\r\n');
+/*!40000 ALTER TABLE `htmlreference` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `model_functions`
+--
+
+DROP TABLE IF EXISTS `model_functions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `model_functions` (
+  `model` varchar(255) NOT NULL,
+  `order` int(11) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `parameters` text,
+  `code` text NOT NULL,
+  `comments` text,
+  `status` tinyint(4) DEFAULT NULL,
+  `entry_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`model`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `model_functions`
+--
+
+LOCK TABLES `model_functions` WRITE;
+/*!40000 ALTER TABLE `model_functions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `model_functions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `models`
+--
+
+DROP TABLE IF EXISTS `models`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `models` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `path` text NOT NULL,
+  `code` text NOT NULL,
+  `last_updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `models`
+--
+
+LOCK TABLES `models` WRITE;
+/*!40000 ALTER TABLE `models` DISABLE KEYS */;
+/*!40000 ALTER TABLE `models` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sites`
+--
+
+DROP TABLE IF EXISTS `sites`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sites` (
+  `name` varchar(255) NOT NULL,
+  `path` text NOT NULL,
+  `ident` varchar(20) NOT NULL,
+  PRIMARY KEY (`ident`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sites`
+--
+
+LOCK TABLES `sites` WRITE;
+/*!40000 ALTER TABLE `sites` DISABLE KEYS */;
+INSERT INTO `sites` VALUES ('rdp','/Users/mac/htdocs/rdp','rdp'),('viewCreator','/Users/mac/htdocs/viewcreater','vc');
+/*!40000 ALTER TABLE `sites` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `view`
+--
+
+DROP TABLE IF EXISTS `view`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `view` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `path` text NOT NULL,
+  `last_updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `view`
+--
+
+LOCK TABLES `view` WRITE;
+/*!40000 ALTER TABLE `view` DISABLE KEYS */;
+/*!40000 ALTER TABLE `view` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `viewelements`
+--
+
+DROP TABLE IF EXISTS `viewelements`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `viewelements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `view_id` varchar(255) NOT NULL,
+  `elem_id` varchar(255) NOT NULL,
+  `html` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `viewelements`
+--
+
+LOCK TABLES `viewelements` WRITE;
+/*!40000 ALTER TABLE `viewelements` DISABLE KEYS */;
+/*!40000 ALTER TABLE `viewelements` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-11-29 10:40:33
