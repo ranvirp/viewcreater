@@ -5,12 +5,12 @@ return array(
 	'sample1'=>array(
 		'name' => '',
 		'path' => '',
-		'ident' => '',
+		'config' => '',
 	),
 	'sample2'=>array(
 		'name' => '',
 		'path' => '',
-		'ident' => '',
+		'config' => '',
 	),
 	*/
 );

@@ -107,7 +107,7 @@ class htmlreference extends CActiveRecord
 	}
          public static function listAllAsOptions()
         {
-            $models=htmlreference::model()->findAll();
+            $models=htmlreference::model()->findAllByAttributes(array('container'=>'n'));
             foreach ($models as $model)
             {
                 echo '<option value="'.$model->id.'">'.$model->htmltype.'</option>';

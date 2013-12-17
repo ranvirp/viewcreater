@@ -95,6 +95,16 @@ class controllers extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	public static function allFunctions($controller)
+	{
+		$models = Functions::model()->findAllByAttributes(array('classid'=>$controller));
+		$str='';
+		foreach ($models as $model)
+		{
+			$str.= '<option value="'.$model->id.'">'.$model->name."</option>";
+		}
+		print $str;
+	}
         
         
 }

@@ -4,9 +4,10 @@
  * This is the model class for table "sites".
  *
  * The followings are the available columns in table 'sites':
+ * @property integer $id
  * @property string $name
  * @property string $path
- * @property string $ident
+ * @property string $config
  */
 class sites extends CActiveRecord
 {
@@ -35,12 +36,11 @@ class sites extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, path, ident', 'required'),
+			array('name, path, config', 'required'),
 			array('name', 'length', 'max'=>255),
-			array('ident', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('name, path, ident', 'safe', 'on'=>'search'),
+			array('id, name, path, config', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,10 +61,35 @@ class sites extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'id' => 'Id',
 			'name' => 'Name',
 			'path' => 'Path',
-			'ident' => 'Ident',
+			'config' => 'Config',
 		);
+	}
+
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		//$criteria->compare('id',$this->id);
+
+		$criteria->compare('name',$this->name,true);
+
+		//$criteria->compare('path',$this->path,true);
+
+		//$criteria->compare('config',$this->config,true);
+
+		return new CActiveDataProvider('sites', array(
+			'criteria'=>$criteria,
+		));
 	}
 	public static function importSite($siteId)
 		
@@ -72,5 +97,4 @@ class sites extends CActiveRecord
 		$site=Sites::model()->findByPk($siteId);
 		SiteImporter::import($site);
 	}
-	
 }

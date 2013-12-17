@@ -74,8 +74,8 @@ class SitesController extends Controller
 		{
 			$model->attributes=$_POST['sites'];
 			if($model->save()){
-                                populateControllers($model);
-				$this->redirect(array('view','id'=>$model->ident));
+                               // populateControllers($model);
+				$this->redirect(array('view','id'=>$model->id));
                         }
 		}
 
@@ -99,7 +99,7 @@ class SitesController extends Controller
 		{
 			$model->attributes=$_POST['sites'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->ident));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
@@ -132,7 +132,7 @@ class SitesController extends Controller
 	public function actionIndex()
 		
 	{
-		Sites::importSite(1);
+		//Sites::importSite(1);
 		//$x = new ReflectionClass('class x {function b(){print "hi";}}');
 		//echo Reflection::export($x);
 		//exit;
@@ -141,13 +141,15 @@ class SitesController extends Controller
 		//{
 		 //print_r($method);
 		//}
-		/*
+		$model=new Sites;
+		$model->name='rdp';
 		$dataProvider=new CActiveDataProvider('sites');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+			'model'=>$model
 		));
-		 * 
-		 */
+		  
+		 
 	}
 
 	/**
@@ -209,14 +211,14 @@ public function actionAllSites()
     $str='';
     foreach($models as $model)
     {
-        $str.= "<option value='".$model->ident."'>".$model->name."</option>";
+        $str.= "<option value='".$model->id."'>".$model->name."</option>";
     }
     print $str;
 }
 public function actiongetpath()
 {
     $site_id=Yii::app()->session['site_id'];
-    if (!$site_id) $site_id=3;
+    if (!$site_id) $site_id=1;
    // $site_id=$_SESSION['site_id'];
     $model = Sites::model()->findByPk($site_id);
     print $model->path;
@@ -224,13 +226,55 @@ public function actiongetpath()
 public function actionAllC()
 {
     $site_id=Yii::app()->session['site_id'];
-    $models = Controllers::model()->findAllByAttributes(array('site_id'=>$site_id));
+    $models = Classes::model()->findAllByAttributes(array('siteid'=>$site_id,'type'=>'Controller'));
     $str='';
     foreach($models as $model)
     {
         $str.= "<option value='".$model->id."'>".$model->name."</option>";
     }
     print $str;
+}
+public function actionAllM()
+{
+    $site_id=Yii::app()->session['site_id'];
+    $models = Classes::model()->findAllByAttributes(array('siteid'=>$site_id,'type'=>'CActiveRecord'));
+    $str='';
+    foreach($models as $model)
+    {
+        $str.= "<option value='".$model->id."'>".$model->name."</option>";
+    }
+    print $str;
+}
+public function actionAllV()
+{
+    $site_id=Yii::app()->session['site_id'];
+    $models = View::model()->findAllByAttributes(array('site_id'=>$site_id));
+    $str='';
+    foreach($models as $model)
+    {
+        $str.= "<option value='".$model->id."'>".$model->name."</option>";
+    }
+    print $str;
+}
+public function actionGetView()
+{
+	$site_id=Yii::app()->session['site_id'];
+	$path= $_GET['view'];
+	$site= Sites::model()->findByPk($site_id);
+	print file_get_contents(SiteImporter::getViewFile($site, $path));
+}
+public function actionImportV()
+{
+	$site_id=Yii::app()->session['site_id'];
+	$path= $_GET['view'];
+	$site= Sites::model()->findByPk($site_id);
+	print SiteImporter::importViewFromDisk($site,$path);
+}
+public function actionImport()
+{
+    $site_id=Yii::app()->session['site_id'];
+	$site = Sites::model()->findByPk($site_id);
+    SiteImporter::import($site);
 }
 public function populateControllers()
 {

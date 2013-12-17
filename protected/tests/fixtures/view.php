@@ -3,15 +3,17 @@
 return array(
 	/*
 	'sample1'=>array(
-		'id' => '',
+		'site_id' => '',
 		'name' => '',
 		'path' => '',
+		'code' => '',
 		'last_updated_at' => '',
 	),
 	'sample2'=>array(
-		'id' => '',
+		'site_id' => '',
 		'name' => '',
 		'path' => '',
+		'code' => '',
 		'last_updated_at' => '',
 	),
 	*/

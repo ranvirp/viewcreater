@@ -1,12 +1,12 @@
 <?php
 
-class FunctionsController extends Controller
-{
+class FunctionsController extends Controller {
+
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout = '//layouts/column2';
 
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
@@ -16,8 +16,7 @@ class FunctionsController extends Controller
 	/**
 	 * @return array action filters
 	 */
-	public function filters()
-	{
+	public function filters() {
 		return array(
 			'accessControl', // perform access control for CRUD operations
 		);
@@ -28,39 +27,37 @@ class FunctionsController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules1()
-	{
+	public function accessRules1() {
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','getF','updateF','createF','update1'),
-				'users'=>array('*'),
+			array('allow', // allow all users to perform 'index' and 'view' actions
+				'actions' => array('index', 'view', 'getF', 'updateF', 'createF', 'update1'),
+				'users' => array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions' => array('create', 'update'),
+				'users' => array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'actions' => array('admin', 'delete'),
+				'users' => array('admin'),
 			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
+			array('deny', // deny all users
+				'users' => array('*'),
 			),
 		);
 	}
-public function actionUpdate1()
-{
-    $id= $_GET['id'];
-    $value=$_GET['value'];
-    
-}
+
+	public function actionUpdate1() {
+		$id = $_GET['id'];
+		$value = $_GET['value'];
+	}
+
 	/**
 	 * Displays a particular model.
 	 */
-	public function actionView()
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel(),
+	public function actionView() {
+		$this->render('view', array(
+			'model' => $this->loadModel(),
 		));
 	}
 
@@ -68,96 +65,91 @@ public function actionUpdate1()
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
-	{
-		$model=new functions;
+	public function actionCreate() {
+		$model = new functions;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['functions']))
-		{
-			$model->attributes=$_POST['functions'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+		if (isset($_POST['functions'])) {
+			$model->attributes = $_POST['functions'];
+			if ($model->save())
+				$this->redirect(array('view', 'id' => $model->id));
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
+		$this->render('create', array(
+			'model' => $model,
 		));
 	}
-        	/**
+
+	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreateF()
-	{
-		$model=new functions;
+	public function actionCreateF() {
+		$model = new functions;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['functions']))
-		{
-			$model->attributes=$_POST['functions'];
-			if($model->save())
+		if (isset($_POST['functions'])) {
+			$model->attributes = $_POST['functions'];
+			if ($model->save())
 				print "1";
-                        else 
-                                print "0";
+			else
+				print "0";
 		}
- 
 	}
-public function actionUpdateF()
-	{
-		$model=$this->loadModel();
+
+	public function actionUpdateF() {
+		$model = $this->loadModel();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['functions']))
-		{
-			$model->attributes=$_POST['functions'];
-			if($model->save())
+		if (isset($_POST['functions'])) {
+			$model->attributes = $_POST['functions'];
+			if ($model->save())
 				print "1";
 		}
- print 0;
+		print 0;
 	}
-        public function actionloadF()
-	{
-		$model=$this->loadModel();
+
+	public function actionloadF() {
+		$id = $_GET['id'];
+		$model = Functions::model()->findByPk($id);
 
 		print CJSON::encode($model->attributes);
 	}
-function actionAllF(){
-        $controller=$_GET['controller'];
-    $models = Functions::model()->findAllByAttributes(array('controller'=>$controller));
-    $str='';
-    foreach($models as $model)
-    {
-        $str.= "<option value='".$model->id."'>".$model->name."</option>";
-    }
-    print $str;
-}
+
+	function actionAllF() {
+		$controller = $_GET['controller'];
+		$models = Functions::model()->findAllByAttributes(array('controller' => $controller));
+		$str = '';
+		foreach ($models as $model) {
+			$str.= "<option value='" . $model->id . "'>" . $model->name . "</option>";
+		}
+		print $str;
+	}
+
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionUpdate()
-	{
-		$model=$this->loadModel();
+	public function actionUpdate() {
+		$model = $this->loadModel();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['functions']))
-		{
-			$model->attributes=$_POST['functions'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+		if (isset($_POST['functions'])) {
+			$model->attributes = $_POST['functions'];
+			if ($model->save())
+				$this->redirect(array('view', 'id' => $model->id));
 		}
 
-		$this->render('update',array(
-			'model'=>$model,
+		$this->render('update', array(
+			'model' => $model,
 		));
 	}
 
@@ -165,44 +157,40 @@ function actionAllF(){
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
 	 */
-	public function actionDelete()
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
+	public function actionDelete() {
+		if (Yii::app()->request->isPostRequest) {
 			// we only allow deletion via POST request
 			$this->loadModel()->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
+			if (!isset($_GET['ajax']))
 				$this->redirect(array('index'));
 		}
 		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+			throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('functions');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+	public function actionIndex() {
+		$dataProvider = new CActiveDataProvider('functions');
+		$this->render('index', array(
+			'dataProvider' => $dataProvider,
 		));
 	}
 
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
-	{
-		$model=new functions('search');
+	public function actionAdmin() {
+		$model = new functions('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['functions']))
-			$model->attributes=$_GET['functions'];
+		if (isset($_GET['functions']))
+			$model->attributes = $_GET['functions'];
 
-		$this->render('admin',array(
-			'model'=>$model,
+		$this->render('admin', array(
+			'model' => $model,
 		));
 	}
 
@@ -210,14 +198,12 @@ function actionAllF(){
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 */
-	public function loadModel()
-	{
-		if($this->_model===null)
-		{
-			if(isset($_GET['id']))
-				$this->_model=functions::model()->findbyPk($_GET['id']);
-			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
+	public function loadModel() {
+		if ($this->_model === null) {
+			if (isset($_GET['id']))
+				$this->_model = functions::model()->findbyPk($_GET['id']);
+			if ($this->_model === null)
+				throw new CHttpException(404, 'The requested page does not exist.');
 		}
 		return $this->_model;
 	}
@@ -226,12 +212,17 @@ function actionAllF(){
 	 * Performs the AJAX validation.
 	 * @param CModel the model to be validated
 	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='functions-form')
-		{
+	protected function performAjaxValidation($model) {
+		if (isset($_POST['ajax']) && $_POST['ajax'] === 'functions-form') {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
+	public function actionSaveFunction()
+	{
+		$fid = $_POST['fid'];
+		$newCode=$_POST['newcode'];
+		Functions::replaceFunctionCode($fid, $newCode);
+	}
+
 }

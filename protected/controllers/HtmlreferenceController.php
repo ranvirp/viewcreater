@@ -224,9 +224,10 @@ class HtmlreferenceController extends Controller
                 }
                 if (preg_match('/(.*?),(.*)/',$s,$matches)) 
                 {
-                    if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9]+)/',$matches[1],$matches2)) {
+                    if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)(:([a-zA-Z0-9\s]+))*/',$matches[1],$matches2)) {
                         $name=$matches2[1];
                         $label=$matches2[2];
+						$helptext=$matches2[4];
                     }
                    
                    $x=$matches[2];
@@ -240,17 +241,20 @@ class HtmlreferenceController extends Controller
                        
                    }  
                 
-                  $str.='</select></div>';
+                  $str.='</select>';
+				  $str.='<p class="help-block">'.$helptext.'</p>';
+				  $str.='</div>';
                  // $str.="<script>$('select[parameter-name=$name]').val('%($name)s);</script>";
                    
                    }
                 else{
-                if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)/',$s,$match)) {
+                if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)(:([a-zA-Z0-9\s]+))*/',$s,$match)) {
                  //   var_dump($match);
                 $str.='<div class="form-group">
               <label for="%(id)s_'.$match[1].'">'.$match[2].'</label>
               <input type="text" class="form-control parameters" parameter-name="'.$match[1].'" parameter-type="%(id)s" 
                 placeholder="Enter '.$match[2].'" value="">
+				<p class="help-block">'.$match[4].'</p>
                 </div>';
                 
                 }
@@ -267,9 +271,10 @@ class HtmlreferenceController extends Controller
           unset($string[0]);
           $name=$string[1];
           unset($string[1]);
-          if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9]+)/',$name,$matches2)) {
+          if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)(:([a-zA-Z0-9\s]+)*)/',$name,$matches2)) {
                         $name=$matches2[1];
                         $label=$matches2[2];
+						$helptext=$matches2[4];
                     }
          
           if (!is_array($string))
@@ -286,9 +291,10 @@ class HtmlreferenceController extends Controller
                 {
                     $name1='';
                     $label1='';
-                    if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9]+)/',$matches[1],$matches2)) {
+                    if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)(:([a-zA-Z0-9\s]+))*/',$matches[1],$matches2)) {
                         $name1=$matches2[1];
                         $label1=$matches2[2];
+						$helptext1=$matches2[4];
                     }
                    
                    $x=$matches[2];
@@ -303,19 +309,22 @@ class HtmlreferenceController extends Controller
                    }  
                 
                   $str.='</select>';
+				   $str.='<p class="help-block">'.$helptext1.'</p>';
+				 
                   $str.='</div>';
                  // $str.="<script>$('select[parameter-name=$name]').val('%($name)s);</script>";
                    
                    }
                 else{
-                if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9]+)/',$s,$match)) {
+                if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)(:([a-zA-Z0-9\s]+))*/',$s,$match)) {
                  //   var_dump($match);
                     $str.='<div class="col-md-4">';
                 $str.='
               <label for="%(id)s_'.$match[1].'">'.$match[2].'</label>
               <input type="text"  p-n="'.$name.'" name="'.$match[1].'"parameter-type="%(id)s" 
-                placeholder="Enter '.$match[2].'" value="">
+                placeholder="Enter '.$match[2].'" value=""\>
                 ';
+				$str.="<p class='help-block'>$match[4]</p>";
                 $str.='</div>';
                 }
             }
@@ -326,7 +335,7 @@ class HtmlreferenceController extends Controller
           $str1 = <<<EOT
           
 <input class="parameters"  type="hidden" parameter-type="%(id)s" parameter-name="$name"   value='array()'/>
-
+<p class="help-block">$helptext -Press Add Row to add another row </p>
 <div class="groupc" mode='$mode'  p-n="$name" count="1"><button onclick='js:addDivHere($(this))'>Add Row</button>
 <div class="groupf row" p-n="$name" count="1">
 EOT;

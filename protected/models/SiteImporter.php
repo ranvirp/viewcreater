@@ -17,7 +17,78 @@ class SiteImporter {
 	public $siteId = 2;
 	public $yiiPath;
 	public $config;
-
+    public static function getViewFile($site,$path)
+	{
+		error_reporting(E_ERROR);
+		$siteId = $site->id;
+		$code = "class yii" . $siteId . " extends YiiBase1 {}";
+		eval($code);
+		//$config = "/Users/mac/htdocs/viewcreater/protected/config/main.php";
+		$config = $site->config;
+		$yii;
+		eval("\$yii=yii$siteId::createWebApplication(\$config);");
+		eval("\$cc=new CController1();");
+		return $cc->getViewFile($path);
+	}
+	public static function importViewFromDisk($site,$path)
+	{
+		//get view from disk and check if that path exists ..if not create a view of that path and save the source
+		error_reporting(E_ERROR);
+		$siteId = $site->id;
+		$code = "class yii" . $siteId . " extends YiiBase1 {}";
+		eval($code);
+		//$config = "/Users/mac/htdocs/viewcreater/protected/config/main.php";
+		$config = $site->config;
+		$yii;
+		eval("\$yii=yii$siteId::createWebApplication(\$config);");
+		eval("\$cc=new CController1();");
+		$diskPath= $cc->getViewFile($path);
+		$viewModel=View::model()->findByAttributes(array('site_id'=>$siteId,'name'=>$path));
+		if (empty ($viewModel))
+		  $viewModel = new View;
+		//else 
+		//	$viewModel=$viewModel[0];
+		$viewModel->site_id=$siteId;
+		$viewModel->name=$path;
+		$viewModel->path=$diskPath;
+		$viewModel->code=file_get_contents($diskPath);
+		$viewModel->last_updated_at=time();
+		//return print_r($viewModel);
+		if (!$viewModel->save())
+			 return print_r($viewModel->getErrors());
+		else 
+			 return $viewModel->code;
+		
+	}
+	public static function saveView($site,$path,$content)
+	{
+		error_reporting(E_ERROR);
+		$siteId = $site->id;
+		$code = "class yii" . $siteId . " extends YiiBase1 {}";
+		eval($code);
+		//$config = "/Users/mac/htdocs/viewcreater/protected/config/main.php";
+		$config = $site->config;
+		$yii;
+		eval("\$yii=yii$siteId::createWebApplication(\$config);");
+		eval("\$cc=new CController1();");
+		$diskPath= $cc->getViewFile($path);
+		$viewModel=View::model()->findByAttributes(array('site_id'=>$siteId,'name'=>$path));
+		if (empty ($viewModel))
+		  $viewModel = new View;
+		//else 
+		//	$viewModel=$viewModel[0];
+		$viewModel->site_id=$siteId;
+		$viewModel->name=$path;
+		$viewModel->path=$diskPath;
+		$viewModel->code=file_get_contents($diskPath);
+		$viewModel->last_updated_at=time();
+		//return print_r($viewModel);
+		if (!$viewModel->save())
+			 return print_r($viewModel->getErrors());
+		else 
+			 return $viewModel->code;
+		
+	}
 	public static function import($site) {
 		error_reporting(E_ERROR);
 		$siteId = $site->id;
@@ -177,9 +248,102 @@ class SiteImporter {
 			}
 		}
 	}
-	private function importControllers()
+	public static function importFile($thispath)
 	{
-		
+		//include_once($thispath);
+				$filecontents = file_get_contents($thispath);
+				$thisfile = basename($thispath);
+				/*
+				$filecontents = "<?php namespace tempimporter$siteId; ?>".$filecontents; 
+				 * 
+				 */
+				$className=  str_ireplace('.php', '', $thisfile);
+				if (preg_match('/class\s+'.$className.'\s+extends\s+(CActiveRecord|Controller)/',$filecontents)==0){ print $className." not found<br>";continue; }
+				//print "here\n";
+				$filecontents=preg_replace('/class\s+'.$className.'\s+extends\s+/',"class tempimporter$siteId$className extends ",$filecontents);
+				//echo $filecontents;
+				//exit;
+				file_put_contents("tempimporter$siteId$className.php",$filecontents);
+				//include_once("temp.php");
+				eval ($filecontents);
+				//print $className."-".$thispath;
+				//exit;
+				//spl_autoload_unregister(array('YiiBase', 'autoload'));
+				$reflection = new ReflectionClass("tempimporter$siteId$className");
+				//print_r($reflection);
+				//exit;
+				//spl_autoload_register(array('YiiBase', 'autoload'));
+				$class = new Classes();
+				$class->siteid=$siteId;
+				$class->type=$reflection->getParentClass()->name;
+				$class->path=$thispath;
+				$class->code=file_get_contents($thispath);
+				$class->name=$className;
+				$class->updated=time();
+				$classes=Classes::model()->findAllByAttributes(array('path'=>$thispath));
+				
+				if (!empty($classes))
+				{
+					if (count($classes)!=1)						throw new Exception;
+					else {
+						unset($class);
+						$class=$classes[0];
+						$class->siteid=$siteId;
+				$class->type=$reflection->getParentClass()->name;
+				$class->path=$thispath;
+				$class->code=file_get_contents($thispath);
+				$class->name=$className;
+				$class->updated=time();
+						
+					}
+				}
+				if (!$class->save()) 
+					print_r($class->getErrors());
+				//print_r($class);
+				//Now import functions of these classes
+				$methods = $reflection->getMethods();
+				foreach ($methods as $method)
+				{
+					//print $method->class."-".$reflection->getName()."<br>";
+					
+				if ($method->class == $reflection->getName()){ //filters out methods of parent classes
+					$code=self::getCode($method);
+				    $start = $method->getStartLine();
+                    $end = $method->getEndLine();
+					$file= $method->getFileName();
+					$function = new Functions;
+					$function->classid=$class->id;
+					
+					$function->name=$method->getName();
+					$function->code=$code;
+					$function->start_line=$start;
+					$function->end_line=$end;
+					$parameters='';
+					foreach ($method->getParameters() as $param)
+					{
+						$parameters.=$param->name.",";
+					}
+					$function->parameters=$parameters;
+					$functions=Functions::model()->findAllByAttributes(array("classid"=>$class->id,"name"=>$function->name));
+					if (!empty($functions))
+				{
+					if (count($functions)!=1)						throw new Exception;
+					else {
+						$function=$functions[0];
+						$function->classid=$class->id;
+					$function->name=$method->getName();
+					$function->code=$code;
+					$function->start_line=$start;
+					$function->end_line=$end;
+					$function->parameters=$parameters;
+						
+					}
+				}
+				if (!$function->save()) print_r($function->errors);
+				}
+				
+				}
+				unlink("tempimporter$siteId$className.php");
 	}
 	
 

@@ -32,18 +32,19 @@
 
 <body>
 
-<div class="container" id="page">
-
+<div  id="page">
+<!--
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 
-	<div id="mainmenu">
+	<div id="mainmenu" class="navbar-fixed-top">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Sites', 'url'=>array('/sites')),
-                            array('label'=>'Html Reference', 'url'=>array('/htmlreference')),
+				array('label'=>'ViewCreator','url'=>array('/vc')),
+                array('label'=>'Html Reference', 'url'=>array('/htmlreference')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
@@ -61,8 +62,8 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> Ranvir Prasad<br/>
+		BSD License<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 

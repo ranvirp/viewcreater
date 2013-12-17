@@ -211,4 +211,11 @@ class ControllersController extends Controller
             $controller=$_GET['controller'];
             Functions::importFile($controller);
         }
+		public function actionAllF()
+		{
+			if (isset($_GET['c'])) {
+				 $controller=$_GET['c'];
+				 Controllers::allFunctions($controller);
+			}
+		}
 }

@@ -23,6 +23,7 @@ EOT;
     }
     .containerelement 
     {
+		position:relative;
         background-color:red;
         display:block;
         min-height: 20px;
@@ -48,6 +49,16 @@ EOT;
     #layoutinfo div.col-md-*{
         background-color: grey;
     }
+	.background {
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+  
+   min-height:20px;
+   overflow: hidden;
+}
 
 </style>
 
@@ -57,8 +68,10 @@ EOT;
     var viewsrc='';
     var viewsrc1='';
     var viewelements={} ;
+	var containerelements={}
     //= new Array();
     var viewelementscount={};
+	var containerelementscount={}
     var editor;
     var delay;
     var selecteddiv;
@@ -66,11 +79,15 @@ EOT;
     $(document).ready(function(){
         selecteddiv=$('#layoutinfo');
         $('#yw0').append('<li>Site:<select id="siteselect"></select><button id="siteselect-btn">Change</button></li>');
+		$('#yw0').append('<li><button id="import-btn">Import</button></li>');
+        $('#import-btn').click(function(){$.get('<?php echo Yii::app()->createUrl("sites/import"); ?>')});
         $.get('<?php echo Yii::app()->createUrl('sites/allsites'); ?>',function (data){$('#siteselect').html(data)})
         // $.get('<?php echo Yii::app()->createUrl('functions/allF'); ?>?controller='+$('#controller-select').val(),function (data){$('#function-select').html(data)})
         
-        // $.get('<?php echo Yii::app()->createUrl('sites/allc'); ?>',function (data){$('#controller-select').html(data)})
-       
+		$.get('<?php echo Yii::app()->createUrl('sites/allC'); ?>',function (data){$('#controller-select').html(data)})
+       $.get('<?php echo Yii::app()->createUrl('sites/allM'); ?>',function (data){$('#model-select').html(data)})
+        $.get('<?php echo Yii::app()->createUrl('sites/allV'); ?>',function (data){$('#view-select').html(data)})
+      
         $.get('<?php echo Yii::app()->createUrl('sites/getpath'); ?>',function (data){$('#sitepath').html(data+'/protected/views/')})
         $('#siteselect-btn').click(function(){$.get("<?php echo Yii::app()->createUrl('sites/addsitetosession'); ?>"+'?site_id='+$('#siteselect').val(),
             function(data){
@@ -81,6 +98,7 @@ EOT;
        
                 // changeinput()      
             });
+			
         });
         
         
@@ -99,7 +117,7 @@ EOT;
         });
         editor.on("change", function() {
             clearTimeout(delay);
-            delay = setTimeout(function(){$('#code1').val(editor.getValue());saveView();}, 300);
+            delay = setTimeout(function(){$('#code1').val(editor.getValue());}, 300);
         });
     });
     function addContainerElement()
@@ -113,6 +131,7 @@ EOT;
             data=$.parseJSON(data);
             el = $(data.code);
             el.addClass('containerelement');
+			el.append('<div class="background pull-right">'+data.htmltype+'</div>');
             selecteddiv.append(el);
         });
         elements1();
@@ -154,6 +173,11 @@ EOT;
                    // $('#'+type+viewelementscount[type]).draggable();
                    var v = {id:type+viewelementscount[type]};
                    $('#pw').html(sprintf(data.parameters,v));
+				   $('#pw').prepend('<h3> Parameters for '+type+viewelementscount[type]+'</h3>');
+				   $('#pw').removeClass("hide");
+				   $('#pw').addClass("show");
+				   $('#layoutinfo').removeClass('col-md-9');
+				   $('#layoutinfo').addClass('col-md-3');
                    saveParameters(type+viewelementscount[type]);
                    $('.parameters').change(function(e){saveParameters(e);});
                    $('div.viewelement').click(function(e){clickviewelement($(this))});
@@ -193,6 +217,11 @@ EOT;
                           }
                       }
                       $('#pw').html(str);
+					  $('#pw').removeClass("hide");
+					  $('#pw').addClass("show");
+					  $('#layoutinfo').removeClass('col-md-9');
+					  $('#layoutinfo').addClass('col-md-3');
+				   
                       $('.parameters').unbind('change');
                       $('.parameters').change(function(e){saveParameters(e);});
                       /*
@@ -224,12 +253,17 @@ EOT;
                           if ($(e.target).is('.containerelement')) {el= $(e.target);}
                           else
                               if (e.target.tagName.toLowerCase()!='div') el=$(e.target).parent('div')
-                          else el = $(e.target)
+                          else if ($(e.target).is('.background')) 
+						     el=$(e.target).parent('div')
+						  else el = $(e.target)
            
                           el.addClass('highlight');
            
                           selecteddiv=el
-                          alert(selecteddiv.attr('class'))
+						  $('.classinfo').html('<input id="classinfo">');
+						  $('#classinfo').val(selecteddiv.attr("class"));
+						  $('input#classinfo').change(function(){selecteddiv.attr('class',$('#classinfo').val())});
+                          //alert(selecteddiv.attr('class'))
            
                       }) ;
                   }
@@ -252,6 +286,7 @@ EOT;
        
                       str1='<script>elements1()<\/script>';
                       str='';
+					  //str+="<div class='container'>";
                       for (i=1;i<=rows;i++)
                       {
                           str+='<div class="row">\n\
@@ -266,7 +301,9 @@ EOT;
             
                           }
                           str+='</div>'; 
+						  
                       }
+					  // str+="</div>";
                       // $('#layoutinfo').html(str);
                       //selecteddiv.dialog();
                       selecteddiv.append(str);
@@ -282,10 +319,10 @@ EOT;
                       //viewsrc=str;
            
                   }
-                  function populateF()
+                  function populateF(classid,destcontainer)
                   {
-                      controller=$('#controller-select').val()
-                      $.get("<?php echo Yii::app()->createUrl('functions/allF'); ?>"+'?controller='+$('#controller-select').val(),function (data){$('#function-select').html(data)})
+                      
+                      $.get("<?php echo Yii::app()->createUrl('controllers/allF'); ?>"+'?c='+classid,function (data){$('#'+destcontainer).html(data)})
        
             
                   }
@@ -305,16 +342,17 @@ EOT;
                       html +='<label for="functions[code]">Code</label>';
                       html +='<textarea rows="4" class="form-control" name="functions[code]" ></textarea>';
                       html +='<input type="submit" value="Submit" onsubmit="$(this).submit();$(this).clear();return false;"/>'
-                      $('#functionspace').html(html);
+                      $('#functionspace').append(html);
                       $('#layoutinfo').removeClass('show');
                       $('#functionspace').removeClass('hide');
                       $('#layoutinfo').addClass('hide');
                       $('#functionspace').addClass('show');
             
                   }
-                  function loadF() 
+                  function loadF(functionid) 
                   {
-                      functionid = $('#function-select').val()
+					  // functionid = $('#function-select').val()
+					  $('#functionid').html(functionid);
                       $.get("<?php echo Yii::app()->createUrl('functions/loadF') ?>?id="+functionid,
                       function(data){
                           data = $.parseJSON(data)
@@ -322,9 +360,9 @@ EOT;
                           // str='<div class="edit">'
                           // str='<pre class="pre-scrollable">'
                           // str+='<p>'+data.comments+'</p>'
-                          str+=data.comments
+						  // str+=data.comments
                           //str+='<p>'
-                          str+='function '+data.name+'('+data.parameters+')'
+                          //str+='function '+data.name+'('+data.parameters+')'
                           //str+='</p>'
                           //str+='<p>{</p>'
                           //str+='<p>'+data.code+'</p>'
@@ -337,9 +375,10 @@ EOT;
                           //$('#code1').val('');
                           //$('#code1').val(str);
                           //document.getElementById('code1').value = str
-                          editor.setValue('\<\?php \n\
-             '+str+' \n\
-\?\>');
+						  editor.setValue(str);
+                          //editor.setValue('\<\?php \n\
+            // '+str+' \n\
+//\?\>');
                           $('#layoutinfo').removeClass('show');
                           $('#functionspace').removeClass('hide');
                           $('#layoutinfo').addClass('hide');
@@ -356,8 +395,35 @@ EOT;
                       controller = $('#controller-select').val()
                       $.get('<?php echo Yii::app()->createUrl("controllers/importC") ?>'+'?controller='+controller);
                   }
+				  function importViewFromDisk()
+				  {
+					  $('#layoutinfo').removeClass('show');
+                      $('#functionspace').removeClass('hide');
+                      $('#layoutinfo').addClass('hide');
+                      $('#functionspace').addClass('show');
+                      $('#pw').addClass('hide');
+                      $('#functionspace').removeClass('col-md-6');
+                      $('#functionspace').addClass('col-md-9');
+					  $.get('<?php echo Yii::app()->createUrl("sites/importV") ?>'+'?view='+$('#viewname').val(),
+				  function(data){editor.setValue(data)});
+				  }
+				  function showViewSource(view)
+				  {
+					$('#layoutinfo').removeClass('show');
+                      $('#functionspace').removeClass('hide');
+                      $('#layoutinfo').addClass('hide');
+                      $('#functionspace').addClass('show');
+                      $('#pw').addClass('hide');
+                      $('#functionspace').removeClass('col-md-6');
+                      $('#functionspace').addClass('col-md-9');
+					  $.get('<?php echo Yii::app()->createUrl("sites/getview") ?>?view='+view,
+					  function(data){
+						  editor.setValue(data);
+					  })
+				  }
                   function showSource() {
-             
+              $('#layoutrendered').removeClass('show');
+					  $('#layoutrendered').addClass('hide');
                       $('#layoutinfo').removeClass('show');
                       $('#functionspace').removeClass('hide');
                       $('#layoutinfo').addClass('hide');
@@ -382,8 +448,29 @@ EOT;
                       $('#functionspace').addClass('hide');
                       $('#viewsource').removeClass('show');
                       $('#viewsource').addClass('hide');
-                      $('#pw').removeClass('hide');
+					  $('#pw').removeClass('show');
+                      $('#pw').addClass('hide');
+					  $('#layoutinfo').removeClass('col-md-3');
+					  $('#layoutinfo').addClass('col-md-9');
+					   $('#layoutrendered').removeClass('show');
+					  $('#layoutrendered').addClass('hide');
           
+                  }
+				   function showLayoutRendered()
+                  {
+                      $('#layoutinfo').removeClass('show');
+                      $('#functionspace').removeClass('show');
+                      $('#layoutinfo').addClass('hide');
+                      $('#functionspace').addClass('hide');
+                      $('#viewsource').removeClass('show');
+                      $('#viewsource').addClass('hide');
+					  $('#pw').removeClass('show');
+                      $('#pw').addClass('hide');
+					  $('#layoutrendered').removeClass('hide');
+					  $('#layoutrendered').addClass('show');
+					  $('#layoutrendered').html(getview());
+					 
+					  
                   }
                   function saveParameters(type)
                   { 
@@ -404,8 +491,15 @@ EOT;
                   function saveView() 
                   {
                       viewpath = $('#sitepath').html()+$('#viewname').val()+'.php'
-                      $.post("<?php echo Yii::app()->createUrl('view/saveview'); ?>",{'viewpath':viewpath,'content':getview()},function(data){$('#saveviewresult').html('View Saved!')})
+                      $.post("<?php echo Yii::app()->createUrl('view/saveview'); ?>",{'viewpath':viewpath,'content':getview()},
+					  function(data){$('#saveviewresult').html('View Saved!')})
                   }
+				  function saveFunction()
+				  {
+					  functionid=$('#functionid').html()
+					  newcode= $('#code1').val()
+					  $.post("<?php echo Yii::app()->createUrl('functions/saveFunction'); ?>",{'fid':functionid,'newcode':newcode});
+				  }
                   function replaceViewElementWrapper (z){
                       if (z.children('div').length>=1)
                       {
@@ -424,17 +518,19 @@ EOT;
                   function getview()
                   {
                       var x={}
-                      viewsrc = $('#layoutinfo').html()
+                      viewsrc = "<div>"+$('#layoutinfo').html()+"</div>";
                       var doc = $(viewsrc)
+					  doc.find('.background').remove()
                       doc.find('.bordered').removeClass('bordered');
                       doc.find('.highlight').removeClass('highlight');
+					  
                       doc.find('div.viewelement').each(function(){
                           elid='%('+$(this).attr('viewelement-id')+')s'
                           $(this).parent().append(elid)
                           $(this).remove()
                       });
                       
-                      viewsrc=doc.html()
+                      viewsrc=doc.html();
                       for(key in viewelements){
                           if(viewelements.hasOwnProperty(key)){
                               x[key]=sprintf(viewelements[key]['code'],viewelements[key]['parameters'])
@@ -503,67 +599,200 @@ EOT;
 
 
 </script>
-<div class="row well">
-    View Path:<span id="sitepath"></span><span>/<input id="viewname" size="20"></span>
+<div class="well row ">
+	<div class="col-md-3">
+									Select:<select id="viewelement-select">
+										<?php echo Htmlreference::model()->listAllAsOptions() ?>
 
-    <span>Rows:</span><input type="text" size="2" id ="noofrows" name="noofrows" value="1"/>
-    <span>Divid:<input size="5" id="divid" value="layoutinfo" ></span>
-    <button onclick="js:addcolumns($('#noofrows').val())">Add</button>
-    <span id="colinfo">
-    </span>
-    <p><button class="btn" onclick="js:showSource()">Show View Source</button><button class="btn" onclick="js:showLayout()">Show Layout</button>
-        <button class="btn" onclick="js:saveView()">Save View</button></p>
+									</select>
+									<button class="btn btn-success btn-xs" onclick="js:addviewelement()">Add</button>
+	</div>
+	<div class="col-md-3">
+									Containers:<select id="containerelement-select">
+										<?php echo Htmlreference::model()->listAllContainers() ?>
+
+									</select>
+									<button class="btn btn-success btn-xs" onclick="js:addContainerElement()">Add</button>
+	</div>
+	<div class="col-md-2">
+		<span>Rows:</span><input type="text" size="2" id ="noofrows" name="noofrows" value="1"/>
+										<button onclick="js:addcolumns($('#noofrows').val())">Add</button>
+										<p id="colinfo">
+										</p>
+										<div class="classinfo">Selected DIV css</div>
+	</div>
+	<div class="col-md-3 pull-right">
+	<div class="col-md-3">
+											<button onclick="js:showSource()" type="button" class="btn btn-default">
+											<span class="glyphicon glyphicon-info-sign">Source </span>
+										</button>
+										</div>
+										<div class="col-md-3">
+										<button class="btn" onclick="js:showLayout()">Layout</button>
+										</div>
+		<div class="col-md-3">
+										<button class="btn" onclick="js:showLayoutRendered()">Rendered</button>
+										</div>
+										<div class="col-md-3">
+										<button type="button" onclick="js:saveView()" class="btn btn-default <?php
+												$size = 'sm';
+												if ($size != '')
+													echo 'btn-' . $size;
+										?>">
+											<span class="glyphicon glyphicon-floppy-save"></span>Save
+										</button>
+										</div>
+	</div>
 </div>
 <div class='row'>
-    <div class="well col-md-3">
-        <span>Controllers</span>
-        <select id="controller-select" onclick="js:populateF()">
-            <option value="Hi">Hi</option>
-        </select><button id ="newc" class="btn btn-success btn-xs">New</button>
-        <button id ="writec" class="btn btn-success btn-xs" onclick="js:writeC()">W</button>
-        <button id ="importc" class="btn btn-success btn-xs" onclick="js:importC()">I</button>
+    <div class=" col-md-3">
+		<div class="panel-group">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					Site Info
+				</div>
+				<div class="panel-body">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs">
+						<li><a href="#models" data-toggle="tab">Models</a></li>
+						<li><a href="#views" data-toggle="tab">Views</a></li>
+						<li><a href="#controllers" data-toggle="tab">Controllers</a></li>
 
-        <p>Functions </p>
-        <select id="function-select" onchange="js:loadF()">
-            <option value="Hi">Hi</option>
-        </select>
-        <button id ="loadf" class="btn btn-success btn-xs" onclick="js:loadF()">Load</button>
-        <button id="newf" class="btn btn-success btn-xs" onclick="js:newF()">New</button>
-        <p></p>
-        <span>Models</span>
-        <select id="model-select">
-            <option value="Hi">Hi</option>
-        </select>
-        <p ></p>
-        <span class="label label-primary">View Elements</span>
-        <p></p>
-        Select:<select id="viewelement-select">
-            <?php echo Htmlreference::model()->listAllAsOptions() ?>
+					</ul>
 
-        </select>
-        <button class="btn btn-success btn-xs" onclick="js:addviewelement()">Add</button>
-        Containers:<select id="containerelement-select">
-            <?php echo Htmlreference::model()->listAllContainers() ?>
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div class="tab-pane active" id="models">
 
-        </select>
-        <button class="btn btn-success btn-xs" onclick="js:addContainerElement()">Add</button>
+							<div class="row">
+								<div class="col-md-12">
+									<label for="model-select">Models:</label>
+									<select id="model-select" class="form-control input-mini" onChange="js:populateF($(this).val(),'mf-select')">
+										<option value="Hi">Hi</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<label for="model-select">Model Functions:</label>
+									<select id="mf-select" class="form-control" onchange="">
+										<option value="Hi">Hi</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+
+								<div class="col-md-4">
+									<button class="btn btn-success">Attributes</button>
+								</div>
+								<div class="col-md-4">
+											<button class="btn btn-success" onclick="js:loadF($('#mf-select').val())">View Code</button>
+										</div>
+								<div class="col-md-4">
+									<button class="btn btn-success">Relations</button>
+								</div>
+							</div>
+
+						</div>
+						<div class="tab-pane" id="views">
+							
+
+							<div class="panel panel-primary">
+								<div class="panel-heading"> View</div>
+								<div class="panel-body">
+									<div class="row">
+								<div class="col-md-12">
+									<label for="model-select">Views:</label>
+									<select id="view-select" class="form-control" onchange="$('#viewname').val($(this).text())">
+										<option value="Hi">Hi</option>
+									</select>
+								</div>
+							</div>
+									<div class="row">
+									<span class="hide">Divid:<input size="5" id="divid" value="layoutinfo" ></span>
+									<label>View Path:</label>
+									<input class="form-control" id="viewname"/>
+									<button class="btn btn-success" onclick="js:showViewSource($('#viewname').val())">Show view File</button>
+									<button class="btn btn-success" onclick="js:importViewFromDisk()">Import From Disk</button>
+									
+									</div>
 
 
-    </div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="controllers">
+							<div class="panel panel-default panel-success">
+								<div class="panel-heading"> Controller Info</div>
+								<div class="panel-body">
+									<label for="controller-select">Controllers:</label>
+									<select id="controller-select" class="form-control input-sm" onChange="js:populateF($(this).val(),'cf-select')">
+										<option value="Hi">Hi</option>
+									</select>
 
-    <div id="layoutinfo" class='well col-md-6 show'>
+									<div class="row">
+										<div class="col-md-12">
+											<label >Controller Functions:</label>
+											<select id="cf-select" class="form-control" onchange="">
+												<option value="Hi">Hi</option>
+											</select>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<button class="btn btn-success" onclick="js:loadF($('#cf-select').val())">View Code</button>
+										</div>
+									</div>
+								</div>
+							</div>  
+						</div>
+					</div>
 
-    </div>
-    <div id="viewsource" class='well col-md-6 hide'>
+				</div>
+			</div>
 
-    </div>
-    <div id="functionspace" class="well col-md-6 hide">
-        <textarea id="code1" rows="20" cols="20">Hi
-        </textarea>
-    </div>
 
-    <div id="pw" class='well col-md-3'>
 
-    </div>
-    <div class="well row"></div>
+		</div>
+
+
+	</div>
+
+
+<div id="layoutinfo" class='well col-md-9 show'>
+
 </div>
+	<div id="layoutrendered" class='well col-md-9 hide'>
+
+</div>
+<div id="viewsource" class='well col-md-9 hide'>
+
+</div>
+<div id="functionspace" class="well col-md-9 hide">
+	<div class="hide" id="functionid"></div>
+	<div class="row">
+		<div id="classpath"></div>
+		<div id="fnsavebtn" class="pull-right">
+			<button class="btn btn-success" onclick="js:saveFunction()">
+				<span class="glyphicon glyphicon-save">Save Function</span>
+			</button>
+		</div>
+		 <div id="viewsavebtn" class="pull-right">
+			<button class="btn btn-success" onclick="js:saveView()">
+				<span class="glyphicon glyphicon-save"> Save View</span>
+			</button>
+		</div>
+	</div>
+	<div class="row">
+	<textarea id="code1" rows="20" cols="20">Hi
+	</textarea>
+	</div>
+</div>
+
+<div id="pw" class='well col-md-6 hide'>
+
+
+</div>
+</div>
+
+

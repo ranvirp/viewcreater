@@ -1,4 +1,4 @@
-<?php
+Ï<?php
 
 class ModelsController extends Controller
 {

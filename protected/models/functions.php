@@ -167,4 +167,32 @@ preg_match_all($regex,$str,$matches);
 			'criteria'=>$criteria,
 		));
 	}
+	public static function replaceFunctionCode($fid,$newCode)
+	{
+		//get function
+		$function = Functions::model()->findByPk($fid);
+		$start_line = $function->start_line;
+		$end_line = $function->end_line;
+		//TODO:check the file on the disk is older or not
+		$class= Classes::model()->findByPk($function->classid);
+		$path = $class->path;
+		copy($path,$path.'.old') or exit("could not make a copy of file");
+		$file=fopen($path,"w") or die("could not open $path for writing");
+		$lines = explode("\n",$class->code);
+		$linecount=1;
+		foreach ($lines as $line)
+		{
+			if ($linecount==$start_line)
+			{
+				fwrite($file,$newCode."\n");
+			}
+			if (($linecount<$start_line) || ($linecount>$end_line))
+			{
+				fwrite($file,$line."\n");
+			}
+			$linecount++;
+		}
+		fclose($file);
+		SiteImporter::importFile($path);
+	}
 }

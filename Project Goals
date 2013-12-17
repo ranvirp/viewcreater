@@ -1,0 +1,38 @@
+Well, I am writing to help me code further in this project. Basically I wanted a project as all-in-one thing for creating 
+and developing with Yii. So I wanted the following:
+
+1. Site : 
+        - Create a new site in an empty directory - so check if directory is empty or directory does not exist then create a
+          entire directory structure may be I should copy code from console 
+        - Import an existing site..means a models, its functions and controllers and its functions
+
+-------- For both these things TO DO: A form and then corresponding action in the controller
+
+2. Models :
+         create a model from a schema definition 
+                - should we allow people to define schema? I think so-- we should It makes sense not to deal with the database
+                  directly - so a form to add an attribute and he can see all the attributes
+                - write three or four functions which would expose data of the model useful for AJAX functions - like in list
+                  format useful for drop downs
+                - make some changes in the function from the project itself.. 
+                   - write a regex to extract function name from the code of the function so that in case function name is
+                     changed we can change function name also.. then write a code to open the code file and make necessary
+                     changes in those lines in the code
+                - Add a model function 
+                - Add an attribute and then change corresponding model file 
+3. Controllers
+                 - create a controller 
+                 - add controller function and merge with the code file 
+4. Views
+                 - In the parameters - add documentation option so that we know what are parameters
+                 - elements input drop down, add event options for elements , elements which can be populated using ajax
+                 - nav bars, side nav bars , elements with nice looking headings
+                 - create a view....view elements with id , ability to use these elements with in other views-- a challenge
+
+                 - Paradigm of drag and insert---we shall stick to that - add ability to change class of the element.. 
+                   easy to add
+
+5. Documentation for the project
+
+-- Alpha release we would not add Models and controllers part...and only concentrate on views.....so whatever is left of 
+   views you should do 

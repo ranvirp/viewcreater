@@ -5,8 +5,10 @@
  *
  * The followings are the available columns in table 'view':
  * @property integer $id
+ * @property integer $site_id
  * @property string $name
  * @property string $path
+ * @property string $code
  * @property string $last_updated_at
  */
 class view extends CActiveRecord
@@ -36,12 +38,13 @@ class view extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, name, path, last_updated_at', 'required'),
-			array('id', 'numerical', 'integerOnly'=>true),
+			array('site_id, name, path, last_updated_at', 'required'),
+			array('site_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
+			array('code', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, path, last_updated_at', 'safe', 'on'=>'search'),
+			array('id, site_id, name, path, code, last_updated_at', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,8 +66,10 @@ class view extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
+			'site_id' => 'Site',
 			'name' => 'Name',
 			'path' => 'Path',
+			'code' => 'Code',
 			'last_updated_at' => 'Last Updated At',
 		);
 	}
@@ -82,9 +87,13 @@ class view extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 
+		$criteria->compare('site_id',$this->site_id);
+
 		$criteria->compare('name',$this->name,true);
 
 		$criteria->compare('path',$this->path,true);
+
+		$criteria->compare('code',$this->code,true);
 
 		$criteria->compare('last_updated_at',$this->last_updated_at,true);
 
