@@ -87,18 +87,10 @@ class FunctionsController extends Controller {
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreateF() {
-		$model = new functions;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if (isset($_POST['functions'])) {
-			$model->attributes = $_POST['functions'];
-			if ($model->save())
-				print "1";
-			else
-				print "0";
-		}
+		$code=$_POST['code'];
+		$afterFunction=$_POST['afn'];
+		print Functions::insertFunction($code, $afterFunction);
+		
 	}
 
 	public function actionUpdateF() {

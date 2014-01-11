@@ -73,14 +73,14 @@ class SiteImporter {
 		eval("\$cc=new CController1();");
 		$diskPath= $cc->getViewFile($path);
 		$viewModel=View::model()->findByAttributes(array('site_id'=>$siteId,'name'=>$path));
-		if (empty ($viewModel))
+		if (!$viewModel)
 		  $viewModel = new View;
 		//else 
 		//	$viewModel=$viewModel[0];
 		$viewModel->site_id=$siteId;
 		$viewModel->name=$path;
 		$viewModel->path=$diskPath;
-		$viewModel->code=file_get_contents($diskPath);
+		$viewModel->code=$content;
 		$viewModel->last_updated_at=time();
 		//return print_r($viewModel);
 		if (!$viewModel->save())
@@ -88,6 +88,30 @@ class SiteImporter {
 		else 
 			 return $viewModel->code;
 		
+	}
+	public static function writeViewToDisk($site,$path)
+	{
+		error_reporting(E_ERROR);
+		
+		$siteId = $site->id;
+		$viewModel=View::model()->findByAttributes(array('site_id'=>$siteId,'name'=>$path));
+		if (!$viewModel){return "Error:this view has not been created yet..first create it";}
+		else {
+		$code = "class yii" . $siteId . " extends YiiBase1 {}";
+		eval($code);
+		//$config = "/Users/mac/htdocs/viewcreater/protected/config/main.php";
+		$config = $site->config;
+		$yii;
+		eval("\$yii=yii$siteId::createWebApplication(\$config);");
+		eval("\$cc=new CController1();");
+		$diskPath= $cc->getViewFile($path);
+		//$diskPath='/Applications/XAMPP/xamppfiles/htdocs/rdp/protected/views/test/test.php';
+		$x= file_put_contents($diskPath,$viewModel->code);
+		if ($x)
+		return "Success writing to $diskPath";
+		else 
+			return "could not write to $diskPath";
+		}
 	}
 	public static function import($site) {
 		error_reporting(E_ERROR);
@@ -114,7 +138,7 @@ class SiteImporter {
 				 */
 				$className=  str_ireplace('.php', '', $thisfile);
 				if (preg_match('/class\s+'.$className.'\s+extends\s+(CActiveRecord|Controller)/',$filecontents)==0){ print $className." not found<br>";continue; }
-				print "here\n";
+				//print "here\n";
 				$filecontents=preg_replace('/class\s+'.$className.'\s+extends\s+/',"class tempimporter$siteId$className extends ",$filecontents);
 				//echo $filecontents;
 				//exit;
