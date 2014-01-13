@@ -107,14 +107,19 @@ class htmlreference extends CActiveRecord
 	}
          public static function listAllAsOptions()
         {
-            $models=htmlreference::model()->findAllByAttributes(array('container'=>'n'));
+			 $criteria = new CDbCriteria(array('order'=>'htmltype ASC'));
+
+            $models=htmlreference::model()->findAllByAttributes(array('container'=>'n'),$criteria);
             foreach ($models as $model)
             {
                 echo '<option value="'.$model->id.'">'.$model->htmltype.'</option>';
             }
         }
          public static function listAllContainers()
+			 
         {
+			 $criteria = new CDbCriteria(array('order'=>'htmltype ASC'));
+
             $models=htmlreference::model()->findAllByAttributes(array('container'=>'y'));
             foreach ($models as $model)
             {

@@ -195,4 +195,43 @@ preg_match_all($regex,$str,$matches);
 		fclose($file);
 		SiteImporter::importFile($path);
 	}
+	/*
+	 * ToDO: this function has to be used but not now
+	 */
+	public static function insertFunction($code,$afterFunction) 
+	{
+		
+		if (is_numeric($afterFunction)) 
+		{
+			$function = Functions::model()->findByPk($afterFunction);
+			if (!$function) {return 0;}
+			else 
+			{
+				
+			 $start_line =$function->end_line+1;
+			 $class= Classes::model()->findByPk($function->classid);
+		$path = $class->path;
+		copy($path,$path.'.old') or exit("could not make a copy of file");
+		$file=fopen($path,"w") or die("could not open $path for writing");
+		$lines = explode("\n",$class->code);
+		$linecount=1;
+		foreach ($lines as $line)
+		{
+			if ($linecount==$start_line)
+			{
+				fwrite($file,$code."\n");
+			}
+			
+				fwrite($file,$line."\n");
+			
+			$linecount++;
+		}
+		fclose($file);
+		SiteImporter::importFile($path);
+		return 1;
+			}
+		}
+		else 
+			return 0;
+	}
 }

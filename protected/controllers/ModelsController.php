@@ -1,4 +1,4 @@
-Ï<?php
+<?php
 
 class ModelsController extends Controller
 {
@@ -28,7 +28,7 @@ class ModelsController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
+	public function accessRules1()
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
@@ -177,5 +177,52 @@ class ModelsController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+	public function actionShowAttributes()
+	{
+		error_reporting(E_ERROR);
+		$modelId=$_GET['model'];
+		$model=  Classes::model()->findByPk($modelId);
+		
+		$siteId = $model->siteid;
+		$site=Sites::model()->findByPk($siteId);
+		$code = "class yii" . $siteId . " extends YiiBase1 {}";
+		eval($code);
+		
+		//$config = "/Users/mac/htdocs/viewcreater/protected/config/main.php";
+		$config = $site->config;
+		$yii;
+		eval("\$yii=yii$siteId::createWebApplication(\$config);");
+		$basePath = YiiBase1::app()->basePath;
+		$thispath=$model->path;
+		$filecontents = file_get_contents($thispath);
+				/*
+				$filecontents = "<?php namespace tempimporter$siteId; ?>".$filecontents; 
+				 * 
+				 */
+				$className=  $model->name;
+				//print "here\n";
+				$filecontents=preg_replace('/class\s+'.$className.'\s+extends\s+CActiveRecord/',"class tempimporter$siteId$className extends CActiveRecord1",$filecontents);
+$filecontents=preg_replace("/Yii::/","YiiBase1::",$filecontents);				
+//echo $filecontents;
+				//exit;
+				file_put_contents("tempimporter$siteId$className.php",$filecontents);
+				eval("class CActiveRecord1 extends CActiveRecord{function getDbConnection(){return YiiBase1::app()->db;}}");
+				eval($filecontents);
+			$olddb = CActiveRecord::$db;
+			CActiveRecord1::$db=  YiiBase1::app()->db;
+		 eval("\$x= tempimporter$siteId$className::model()->getMetaData();");
+		 unlink("tempimporter$siteId$className.php");
+		 //CActiveRecord::$db=$olddb;
+		 $str="<table>\n";
+		 $str.="<tr><th>Name</th><th>Type</th><th>DBType</th><th>Size</th></tr>";
+		 foreach($x->columns as $column=>$details)
+		 {
+		   $str.="<tr><td>".$column."</td><td>".$details->type."</td><td>".$details->dbType."</td><td>".$details->size."</td></tr>\n";
+		 }
+		 $str.="</table>";
+		 print $str;
+			 
+		 
 	}
 }

@@ -180,8 +180,28 @@ class ViewController extends Controller
 	}
         public function actionSaveView()
         {
+			$site= Sites::model()->findByPk(Yii::app()->session['site_id']);
             $viewpath=$_POST['viewpath'];
             $content=$_POST['content'];
-            file_put_contents($viewpath,$content);
+			//check if the viewpath already exists
+			print SiteImporter::saveView($site, $viewpath, $content);
         }
+		public function actionWriteView()
+		{
+			$site= Sites::model()->findByPk(Yii::app()->session['site_id']);
+            $viewpath=$_POST['viewpath'];
+			print SiteImporter::writeViewToDisk($site, $viewpath);
+		}
+		public function actionGetView()
+		{
+			error_reporting();
+			$path=$_GET['view'];
+			$site= Sites::model()->findByPk(Yii::app()->session['site_id']);
+			$viewModel=View::model()->findByAttributes(array('name'=>$path,'site_id'=>$site->id));
+			
+			if ($viewModel)
+				print $viewModel->code;
+			else 
+				print "Error:View does not exist..please create it first";
+		}
 }

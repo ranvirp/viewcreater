@@ -1,56 +1,190 @@
-2013/12/15 04:32:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in /Users/mac/framework/web/CController.php:484
+2013/12/17 02:00:53 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php:1) (/Users/mac/framework/web/CHttpRequest.php:716)
 Stack trace:
-#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('index.php')
-#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('index.php')
-#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/index.php')
-#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/viewcreater/index.php/sites/index.php
+#0 /Users/mac/framework/web/auth/CAccessControlFilter.php(155): CWebUser->loginRequired()
+#1 /Users/mac/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied()
+#2 /Users/mac/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter()
+#3 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /Users/mac/framework/web/filters/CInlineFilter.php(59): ModelsController->filterAccessControl()
+#5 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#7 /Users/mac/framework/web/CController.php(266): ModelsController->runActionWithFilters()
+#8 /Users/mac/framework/web/CWebApplication.php(276): ModelsController->run()
+#9 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/models/showattributes?model=sites
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/17 02:01:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/mac/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /Users/mac/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/mac/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/mac/framework/web/CWebApplication.php(276): CController->run('showattributes')
+#8 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('models/showattr...')
+#9 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/viewcreater/index.php/models/showattributes?model=sites
+HTTP_REFERER=http://localhost/viewcreater/index.php/site/login
 ---
-2013/12/15 04:32:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in /Users/mac/framework/web/CController.php:484
+2013/12/18 07:34:34 [error] [php] Invalid argument supplied for foreach() (/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php:219)
 Stack trace:
-#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('index.php')
-#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('index.php')
-#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/index.php')
-#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/viewcreater/index.php/sites/index.php
----
-2013/12/15 04:32:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in /Users/mac/framework/web/CController.php:484
+#0 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Users/mac/framework/web/filters/CFilterChain.php(134): HtmlreferenceController->runAction()
+#2 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /Users/mac/framework/web/filters/CInlineFilter.php(59): HtmlreferenceController->filterAccessControl()
+#5 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#7 /Users/mac/framework/web/CController.php(266): HtmlreferenceController->runActionWithFilters()
+#8 /Users/mac/framework/web/CWebApplication.php(276): HtmlreferenceController->run()
+#9 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=23
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php (219)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php (161)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/18 07:34:43 [error] [php] Invalid argument supplied for foreach() (/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php:219)
 Stack trace:
-#0 /Users/mac/framework/web/CController.php(271): CController->missingAction('index.php')
-#1 /Users/mac/framework/web/CWebApplication.php(276): CController->run('index.php')
-#2 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/index.php')
-#3 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#4 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/viewcreater/index.php/sites/index.php
----
-2013/12/15 06:34:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "test.jpg".' in /Users/mac/framework/web/CWebApplication.php:280
+#0 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Users/mac/framework/web/filters/CFilterChain.php(134): HtmlreferenceController->runAction()
+#2 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /Users/mac/framework/web/filters/CInlineFilter.php(59): HtmlreferenceController->filterAccessControl()
+#5 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#7 /Users/mac/framework/web/CController.php(266): HtmlreferenceController->runActionWithFilters()
+#8 /Users/mac/framework/web/CWebApplication.php(276): HtmlreferenceController->run()
+#9 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=23
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php (219)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php (161)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/18 07:34:51 [error] [php] Invalid argument supplied for foreach() (/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php:219)
 Stack trace:
-#0 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('test.jpg')
-#1 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/viewcreater/index.php/test.jpg
-HTTP_REFERER=http://localhost/viewcreater/index.php/vc
----
-2013/12/15 06:35:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "test.jpg".' in /Users/mac/framework/web/CWebApplication.php:280
+#0 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Users/mac/framework/web/filters/CFilterChain.php(134): HtmlreferenceController->runAction()
+#2 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /Users/mac/framework/web/filters/CInlineFilter.php(59): HtmlreferenceController->filterAccessControl()
+#5 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#7 /Users/mac/framework/web/CController.php(266): HtmlreferenceController->runActionWithFilters()
+#8 /Users/mac/framework/web/CWebApplication.php(276): HtmlreferenceController->run()
+#9 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=23
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php (219)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php (161)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/18 09:53:47 [error] [php] Invalid argument supplied for foreach() (/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php:187)
 Stack trace:
-#0 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('test.jpg')
-#1 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/viewcreater/index.php/test.jpg
-HTTP_REFERER=http://localhost/viewcreater/index.php/vc
----
-2013/12/15 09:40:38 [error] [exception.CException] exception 'CException' with message 'Property "sites.ident" is not defined.' in /Users/mac/framework/base/CComponent.php:131
+#0 /Users/mac/framework/web/filters/CFilterChain.php(134): ModelsController->runAction()
+#1 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/framework/web/filters/CInlineFilter.php(59): ModelsController->filterAccessControl()
+#4 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/framework/web/CController.php(266): ModelsController->runActionWithFilters()
+#7 /Users/mac/framework/web/CWebApplication.php(276): ModelsController->run()
+#8 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/models/showAttributes?model=113
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php (187)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/18 09:54:33 [error] [php] Invalid argument supplied for foreach() (/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php:187)
 Stack trace:
-#0 /Users/mac/framework/db/ar/CActiveRecord.php(144): CComponent->__get('ident')
-#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/SitesController.php(102): CActiveRecord->__get('ident')
-#2 /Users/mac/framework/web/actions/CInlineAction.php(50): SitesController->actionUpdate()
+#0 /Users/mac/framework/web/filters/CFilterChain.php(134): ModelsController->runAction()
+#1 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/framework/web/filters/CInlineFilter.php(59): ModelsController->filterAccessControl()
+#4 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/framework/web/CController.php(266): ModelsController->runActionWithFilters()
+#7 /Users/mac/framework/web/CWebApplication.php(276): ModelsController->run()
+#8 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/models/showAttributes?model=113
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php (187)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/18 09:56:55 [error] [php] include(AuthAssignment.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(184) : eval()'d code(1): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(184): eval()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): ModelsController->actionShowAttributes()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/filters/CFilterChain.php(134): ModelsController->runAction()
+#5 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#7 /Users/mac/framework/web/filters/CInlineFilter.php(59): ModelsController->filterAccessControl()
+#8 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/framework/web/CController.php(266): ModelsController->runActionWithFilters()
+#11 /Users/mac/framework/web/CWebApplication.php(276): ModelsController->run()
+#12 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#13 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/models/showAttributes?model=AuthAssignment
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(184) : eval()'d code (1)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php (184)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/18 09:57:05 [error] [php] include(AuthAssignment.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(184) : eval()'d code(1): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(184): eval()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): ModelsController->actionShowAttributes()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/filters/CFilterChain.php(134): ModelsController->runAction()
+#5 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#7 /Users/mac/framework/web/filters/CInlineFilter.php(59): ModelsController->filterAccessControl()
+#8 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/framework/web/CController.php(266): ModelsController->runActionWithFilters()
+#11 /Users/mac/framework/web/CWebApplication.php(276): ModelsController->run()
+#12 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#13 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/models/showAttributes?model=AuthAssignment
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(184) : eval()'d code (1)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php (184)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/18 10:12:33 [error] [php] include(PensionerMaster.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(184) : eval()'d code(1): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(184): eval()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): ModelsController->actionShowAttributes()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/filters/CFilterChain.php(134): ModelsController->runAction()
+#5 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#7 /Users/mac/framework/web/filters/CInlineFilter.php(59): ModelsController->filterAccessControl()
+#8 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/framework/web/CController.php(266): ModelsController->runActionWithFilters()
+#11 /Users/mac/framework/web/CWebApplication.php(276): ModelsController->run()
+#12 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#13 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/models/showAttributes?model=PensionerMaster
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(184) : eval()'d code (1)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php (184)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2013/12/18 10:45:03 [error] [exception.CException] exception 'CException' with message 'Property "Classes.siteId" is not defined.' in /Users/mac/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/mac/framework/db/ar/CActiveRecord.php(144): CComponent->__get('siteId')
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/ModelsController.php(187): CActiveRecord->__get('siteId')
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): ModelsController->actionShowAttributes()
 #3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
 #4 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
 #5 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
@@ -59,11 +193,11 @@ Stack trace:
 #8 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
 #9 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
 #10 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 /Users/mac/framework/web/CWebApplication.php(276): CController->run('update')
-#12 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('sites/update')
+#11 /Users/mac/framework/web/CWebApplication.php(276): CController->run('showAttributes')
+#12 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('models/showAttr...')
 #13 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
 #14 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
 #15 {main}
-REQUEST_URI=/viewcreater/index.php/sites/update/2
-HTTP_REFERER=http://localhost/viewcreater/index.php/sites/update/2
+REQUEST_URI=/viewcreater/index.php/models/showAttributes?model=113
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
 ---
