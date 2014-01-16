@@ -253,9 +253,11 @@ class HtmlreferenceController extends Controller
                 $str.='<div class="form-group">
               <label for="%(id)s_'.$match[1].'">'.$match[2].'</label>
               <input type="text" class="form-control parameters" parameter-name="'.$match[1].'" parameter-type="%(id)s" 
-                placeholder="Enter '.$match[2].'" value="">
-				<p class="help-block">'.$match[4].'</p>
-                </div>';
+                placeholder="Enter '.$match[2].'" value="">';
+                if (isset($match[4])){
+		$str.='		<p class="help-block">'.$match[4].'</p>';
+                }
+                $str.='</div>';
                 
                 }
             }

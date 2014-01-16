@@ -201,3 +201,1232 @@ Stack trace:
 REQUEST_URI=/viewcreater/index.php/models/showAttributes?model=113
 HTTP_REFERER=http://localhost/viewcreater/index.php/vc
 ---
+2014/01/13 06:48:43 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Functions" for active record class "Functions" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Functions))
+#1 D:\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(193): CActiveRecord->__construct()
+#3 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#4 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#5 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#14 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#15 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:48:43 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Functions" for active record class "Functions" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Functions))
+#1 D:\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(193): CActiveRecord->__construct()
+#3 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#4 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#5 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#14 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#15 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:49:01 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Functions" for active record class "Functions" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Functions))
+#1 D:\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(193): CActiveRecord->__construct()
+#3 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#4 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#5 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#14 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#15 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:49:01 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Functions" for active record class "Functions" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Functions))
+#1 D:\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(193): CActiveRecord->__construct()
+#3 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#4 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#5 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#14 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#15 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:49:28 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Functions" for active record class "Functions" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Functions))
+#1 D:\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(193): CActiveRecord->__construct()
+#3 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#4 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#5 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#14 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#15 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:49:28 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Functions" for active record class "Functions" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Functions))
+#1 D:\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(193): CActiveRecord->__construct()
+#3 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#4 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#5 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#14 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#15 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:50:51 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Functions" for active record class "Functions" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Functions))
+#1 D:\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(193): CActiveRecord->__construct()
+#3 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#4 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#5 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#14 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#15 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:50:51 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Functions" for active record class "Functions" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Functions))
+#1 D:\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(193): CActiveRecord->__construct()
+#3 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#4 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#5 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#14 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#15 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:54:48 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:54:48 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:59:51 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 06:59:51 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:00:11 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\viewcreater\protected\controllers\FunctionsController.php:114)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): FunctionsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): FunctionsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): FunctionsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): FunctionsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/functions/loadF?id=Hi
+in D:\xampp\htdocs\viewcreater\protected\controllers\FunctionsController.php (114)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 07:02:47 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:02:47 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:03:33 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:03:33 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:03:45 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:03:45 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:03:46 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:03:46 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:14 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:14 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:15 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:15 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:16 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:16 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:16 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:16 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:56 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:09:56 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:18:11 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:18:11 [error] [exception.CException] exception 'CException' with message 'Property "Functions.name" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('name', 'filters')
+#1 D:\xampp\htdocs\viewcreater\protected\models\SiteImporter.php(196): CActiveRecord->__set('name', 'filters')
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\SitesController.php(277): SiteImporter::import(Object(sites))
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): SitesController->actionImport()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('import')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sites/import')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/sites/import
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:29:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rdp.tbl_formatfilled' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_formatfilled`.
+in D:\xampp\htdocs\viewcreater\protected\controllers\ModelsController.php(214) : eval()'d code (1)
+in D:\xampp\htdocs\viewcreater\protected\controllers\ModelsController.php (214)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 07:29:06 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{formatfilled}}" for active record class "tempimporter1Formatfilled" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(tempimporter1Formatfilled))
+#1 D:\xampp\htdocs\viewcreater\protected\controllers\ModelsController.php(214) : eval()'d code(1): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\ModelsController.php(214): eval()
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): ModelsController->actionShowAttributes()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('showAttributes')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('models/showAttr...')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/models/showAttributes?model=41
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 07:29:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rdp.tbl_formatfilled' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_formatfilled`.
+in D:\xampp\htdocs\viewcreater\protected\controllers\ModelsController.php(214) : eval()'d code (1)
+in D:\xampp\htdocs\viewcreater\protected\controllers\ModelsController.php (214)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 07:29:06 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{formatfilled}}" for active record class "tempimporter1Formatfilled" cannot be found in the database.' in D:\yii\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(tempimporter1Formatfilled))
+#1 D:\xampp\htdocs\viewcreater\protected\controllers\ModelsController.php(214) : eval()'d code(1): CActiveRecord->getMetaData()
+#2 D:\xampp\htdocs\viewcreater\protected\controllers\ModelsController.php(214): eval()
+#3 D:\yii\framework\web\actions\CInlineAction.php(49): ModelsController->actionShowAttributes()
+#4 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\yii\framework\web\CWebApplication.php(282): CController->run('showAttributes')
+#13 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('models/showAttr...')
+#14 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/viewcreater/index.php/models/showAttributes?model=41
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---
+in D:\xampp\htdocs\viewcreater\protected\models\CApplication1.php (703)
+2014/01/13 08:13:07 [error] [php] Undefined offset: 4 (D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php:257)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\filters\CFilterChain.php(133): HtmlreferenceController->runAction()
+#2 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\yii\framework\web\filters\CInlineFilter.php(58): HtmlreferenceController->filterAccessControl()
+#5 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(265): HtmlreferenceController->runActionWithFilters()
+#8 D:\yii\framework\web\CWebApplication.php(282): HtmlreferenceController->run()
+#9 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=32
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (257)
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (161)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 08:16:39 [error] [php] Undefined offset: 4 (D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php:257)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\filters\CFilterChain.php(133): HtmlreferenceController->runAction()
+#2 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\yii\framework\web\filters\CInlineFilter.php(58): HtmlreferenceController->filterAccessControl()
+#5 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(265): HtmlreferenceController->runActionWithFilters()
+#8 D:\yii\framework\web\CWebApplication.php(282): HtmlreferenceController->run()
+#9 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=32
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (257)
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (161)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 08:16:54 [error] [php] Undefined offset: 4 (D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php:257)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\filters\CFilterChain.php(133): HtmlreferenceController->runAction()
+#2 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\yii\framework\web\filters\CInlineFilter.php(58): HtmlreferenceController->filterAccessControl()
+#5 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(265): HtmlreferenceController->runActionWithFilters()
+#8 D:\yii\framework\web\CWebApplication.php(282): HtmlreferenceController->run()
+#9 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=32
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (257)
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (161)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 08:17:00 [error] [php] Undefined offset: 4 (D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php:257)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\filters\CFilterChain.php(133): HtmlreferenceController->runAction()
+#2 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\yii\framework\web\filters\CInlineFilter.php(58): HtmlreferenceController->filterAccessControl()
+#5 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(265): HtmlreferenceController->runActionWithFilters()
+#8 D:\yii\framework\web\CWebApplication.php(282): HtmlreferenceController->run()
+#9 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=32
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (257)
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (161)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 08:21:09 [error] [php] Undefined offset: 4 (D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php:257)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\filters\CFilterChain.php(133): HtmlreferenceController->runAction()
+#2 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\yii\framework\web\filters\CInlineFilter.php(58): HtmlreferenceController->filterAccessControl()
+#5 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(265): HtmlreferenceController->runActionWithFilters()
+#8 D:\yii\framework\web\CWebApplication.php(282): HtmlreferenceController->run()
+#9 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=32
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (257)
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (161)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 08:24:30 [error] [php] Undefined offset: 4 (D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php:257)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\filters\CFilterChain.php(133): HtmlreferenceController->runAction()
+#2 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\yii\framework\web\filters\CInlineFilter.php(58): HtmlreferenceController->filterAccessControl()
+#5 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(265): HtmlreferenceController->runActionWithFilters()
+#8 D:\yii\framework\web\CWebApplication.php(282): HtmlreferenceController->run()
+#9 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=32
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (257)
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (161)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 08:25:29 [error] [php] Undefined offset: 4 (D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php:257)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\filters\CFilterChain.php(133): HtmlreferenceController->runAction()
+#2 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\yii\framework\web\filters\CInlineFilter.php(58): HtmlreferenceController->filterAccessControl()
+#5 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(265): HtmlreferenceController->runActionWithFilters()
+#8 D:\yii\framework\web\CWebApplication.php(282): HtmlreferenceController->run()
+#9 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=32
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (257)
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (161)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/13 09:04:11 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\viewcreater\protected\controllers\ViewController.php:200)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/view/getview?view=issues/_form
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewController.php (200)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 11:54:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in D:\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gii')
+#1 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/viewcreater/index.php/gii
+---
+2014/01/16 13:52:31 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:52:41 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:52:45 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:52:48 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:52:48 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:52:48 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:52:51 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:52:51 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:52:51 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:53:49 [error] [php] Undefined offset: 4 (D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php:230)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\filters\CFilterChain.php(133): HtmlreferenceController->runAction()
+#2 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\yii\framework\web\filters\CInlineFilter.php(58): HtmlreferenceController->filterAccessControl()
+#5 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(265): HtmlreferenceController->runActionWithFilters()
+#8 D:\yii\framework\web\CWebApplication.php(282): HtmlreferenceController->run()
+#9 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=18
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (230)
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (161)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:53:51 [error] [php] Undefined offset: 4 (D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php:230)
+Stack trace:
+#0 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\yii\framework\web\filters\CFilterChain.php(133): HtmlreferenceController->runAction()
+#2 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\yii\framework\web\filters\CInlineFilter.php(58): HtmlreferenceController->filterAccessControl()
+#5 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\yii\framework\web\CController.php(265): HtmlreferenceController->runActionWithFilters()
+#8 D:\yii\framework\web\CWebApplication.php(282): HtmlreferenceController->run()
+#9 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/htmlreference/value?id=18
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (230)
+in D:\xampp\htdocs\viewcreater\protected\controllers\HtmlreferenceController.php (161)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:53:55 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:54:00 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:54:05 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:54:48 [error] [php] Undefined index: viewname (D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php:175)
+Stack trace:
+#0 D:\yii\framework\web\filters\CFilterChain.php(133): ViewelementsController->runAction()
+#1 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\yii\framework\web\filters\CInlineFilter.php(58): ViewelementsController->filterAccessControl()
+#4 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(265): ViewelementsController->runActionWithFilters()
+#7 D:\yii\framework\web\CWebApplication.php(282): ViewelementsController->run()
+#8 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\viewcreater\index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+in D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php (175)
+in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/01/16 13:58:24 [error] [exception.CException] exception 'CException' with message 'Property "Viewelements.type" is not defined.' in D:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('type', 'autocomplete1')
+#1 D:\xampp\htdocs\viewcreater\protected\controllers\ViewelementsController.php(178): CActiveRecord->__set('type', 'autocomplete1')
+#2 D:\yii\framework\web\actions\CInlineAction.php(49): ViewelementsController->actionSave()
+#3 D:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\yii\framework\web\CWebApplication.php(282): CController->run('save')
+#12 D:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('viewelements/sa...')
+#13 D:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\xampp\htdocs\viewcreater\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/viewcreater/index.php/viewelements/save
+HTTP_REFERER=http://localhost/viewcreater/index.php/vc
+---

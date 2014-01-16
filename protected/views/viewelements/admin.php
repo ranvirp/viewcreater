@@ -1,12 +1,15 @@
 <?php
+/* @var $this ViewelementsController */
+/* @var $model Viewelements */
+
 $this->breadcrumbs=array(
 	'Viewelements'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List viewelements', 'url'=>array('index')),
-	array('label'=>'Create viewelements', 'url'=>array('create')),
+	array('label'=>'List Viewelements', 'url'=>array('index')),
+	array('label'=>'Create Viewelements', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('viewelements-grid', {
+	$('#viewelements-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -42,10 +45,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'view_id',
-		'elem_id',
+		'siteid',
 		'html',
+		'id',
+		'viewname',
+		'elemid',
+		'elemtype',
+		/*
+		'elemparameters',
+		'elemcode',
+		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

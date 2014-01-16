@@ -1,11 +1,14 @@
 <?php
+/* @var $this ViewelementsController */
+/* @var $dataProvider CActiveDataProvider */
+
 $this->breadcrumbs=array(
 	'Viewelements',
 );
 
 $this->menu=array(
-	array('label'=>'Create viewelements', 'url'=>array('create')),
-	array('label'=>'Manage viewelements', 'url'=>array('admin')),
+	array('label'=>'Create Viewelements', 'url'=>array('create')),
+	array('label'=>'Manage Viewelements', 'url'=>array('admin')),
 );
 ?>
 

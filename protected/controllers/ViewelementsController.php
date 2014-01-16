@@ -9,17 +9,13 @@ class ViewelementsController extends Controller
 	public $layout='//layouts/column2';
 
 	/**
-	 * @var CActiveRecord the currently loaded data model instance.
-	 */
-	private $_model;
-
-	/**
 	 * @return array action filters
 	 */
 	public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -28,7 +24,7 @@ class ViewelementsController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
+	public function accessRules1()
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
@@ -51,11 +47,12 @@ class ViewelementsController extends Controller
 
 	/**
 	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView()
+	public function actionView($id)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel(),
+			'model'=>$this->loadModel($id),
 		));
 	}
 
@@ -65,14 +62,14 @@ class ViewelementsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new viewelements;
+		$model=new Viewelements;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['viewelements']))
+		if(isset($_POST['Viewelements']))
 		{
-			$model->attributes=$_POST['viewelements'];
+			$model->attributes=$_POST['Viewelements'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -81,34 +78,22 @@ class ViewelementsController extends Controller
 			'model'=>$model,
 		));
 	}
-        
-        /*
-         * Function to silently add a view element
-         */
-        public function actionAdd()
-        {
-            $model = new viewelements();
-            $model->attributes = $_GET;
-            if ($model->save()) 
-            print "one element added";
-            else 
-                print "failed";
-        }
 
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate()
+	public function actionUpdate($id)
 	{
-		$model=$this->loadModel();
+		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['viewelements']))
+		if(isset($_POST['Viewelements']))
 		{
-			$model->attributes=$_POST['viewelements'];
+			$model->attributes=$_POST['Viewelements'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -120,21 +105,16 @@ class ViewelementsController extends Controller
 
 	/**
 	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
+	 * If deletion is successful, the browser will be redirected to the 'admin' page.
+	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete()
+	public function actionDelete($id)
 	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel()->delete();
+		$this->loadModel($id)->delete();
 
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(array('index'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -142,7 +122,7 @@ class ViewelementsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('viewelements');
+		$dataProvider=new CActiveDataProvider('Viewelements');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -153,10 +133,10 @@ class ViewelementsController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new viewelements('search');
+		$model=new Viewelements('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['viewelements']))
-			$model->attributes=$_GET['viewelements'];
+		if(isset($_GET['Viewelements']))
+			$model->attributes=$_GET['Viewelements'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -166,22 +146,21 @@ class ViewelementsController extends Controller
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
+	 * @param integer $id the ID of the model to be loaded
+	 * @return Viewelements the loaded model
+	 * @throws CHttpException
 	 */
-	public function loadModel()
+	public function loadModel($id)
 	{
-		if($this->_model===null)
-		{
-			if(isset($_GET['id']))
-				$this->_model=viewelements::model()->findbyPk($_GET['id']);
-			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
-		}
-		return $this->_model;
+		$model=Viewelements::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
 	}
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
+	 * @param Viewelements $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
@@ -191,4 +170,17 @@ class ViewelementsController extends Controller
 			Yii::app()->end();
 		}
 	}
+        public function actionSave()
+        {
+            $ve=viewelements::model()->findByAttributes(array('siteid'=>$_POST['siteid'],'viewname'=>$_POST['viewname']));
+            if (empty($ve))
+            $ve = new viewelements;
+            $ve->elemtype=$_POST['type'];
+            $ve->html=$_POST['html'];
+            $ve->elemparameters=$_POST['parameters'];
+            $ve->elemcode=$_POST['code'];
+            $ve->siteid=$_POST['siteid'];
+            $ve->viewname=$_POST['viewname'];
+            $ve->save();
+        }
 }

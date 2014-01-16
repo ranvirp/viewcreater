@@ -250,7 +250,7 @@ EOT;
                       }) ;
                   }
                   function elements1(){
-                      $('#layoutinfo').find('div,nav').click(function(e){
+                      $('#layoutinfo').find('div,nav,ul').click(function(e){
                           e.stopPropagation();
                           if ($(this).parents().addBack().is('.viewelement')) return;
                           $('div').removeClass('highlight');
@@ -261,7 +261,7 @@ EOT;
                           else
                               if (e.target.tagName.toLowerCase()!='div') el=$(e.target).parent('div')
                           else if ($(e.target).is('.background')) 
-							  el=$(e.target).parent('div')
+							  el=$(e.target).parent()
 						  else el = $(e.target)
            
                           el.addClass('highlight');
@@ -537,6 +537,9 @@ EOT;
                           // alert(parametername+'='+value)
                           viewelements[type]['parameters'][parametername]=value;
                       });
+                     var viewname=$('#viewname').val()
+                     var siteid=$('#siteselect').val()
+                      $.post("<?php echo Yii::app()->createUrl('viewelements/save') ?>",{'siteid':siteid,'type':type,'viewname':viewname,'html':sprintf(viewelements[type]['code'],viewelements[type]['parameters']),'parameters':JSON.stringify(viewelements[type]['parameters']),'code':JSON.stringify(viewelements[type]['code'])})
                       //var table = prettyPrint(viewelements)
                       //$(table).dialog()
                   }

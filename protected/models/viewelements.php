@@ -4,22 +4,17 @@
  * This is the model class for table "viewelements".
  *
  * The followings are the available columns in table 'viewelements':
- * @property integer $id
- * @property integer $view_id
- * @property string $elem_id
+ * @property string $siteid
  * @property string $html
+ * @property integer $id
+ * @property string $viewname
+ * @property string $elemid
+ * @property string $elemtype
+ * @property string $elemparameters
+ * @property string $elemcode
  */
-class viewelements extends CActiveRecord
+class Viewelements extends CActiveRecord
 {
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @return viewelements the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
-
 	/**
 	 * @return string the associated database table name
 	 */
@@ -36,12 +31,10 @@ class viewelements extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, view_id, elem_id, html', 'required'),
-			array('id, view_id', 'numerical', 'integerOnly'=>true),
-			array('elem_id', 'length', 'max'=>255),
+			array('siteid, html, viewname, elemid, elemtype, elemparameters, elemcode', 'safe'),
 			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, view_id, elem_id, html', 'safe', 'on'=>'search'),
+			// @todo Please remove those attributes that should not be searched.
+			array('siteid, html, id, viewname, elemid, elemtype, elemparameters, elemcode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,34 +55,57 @@ class viewelements extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Id',
-			'view_id' => 'View',
-			'elem_id' => 'Elem',
+			'siteid' => 'Siteid',
 			'html' => 'Html',
+			'id' => 'ID',
+			'viewname' => 'Viewname',
+			'elemid' => 'Elemid',
+			'elemtype' => 'Elemtype',
+			'elemparameters' => 'Elemparameters',
+			'elemcode' => 'Elemcode',
 		);
 	}
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-
-		$criteria->compare('view_id',$this->view_id);
-
-		$criteria->compare('elem_id',$this->elem_id,true);
-
+		$criteria->compare('siteid',$this->siteid,true);
 		$criteria->compare('html',$this->html,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('viewname',$this->viewname,true);
+		$criteria->compare('elemid',$this->elemid,true);
+		$criteria->compare('elemtype',$this->elemtype,true);
+		$criteria->compare('elemparameters',$this->elemparameters,true);
+		$criteria->compare('elemcode',$this->elemcode,true);
 
-		return new CActiveDataProvider('viewelements', array(
+		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return Viewelements the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
 	}
 }
