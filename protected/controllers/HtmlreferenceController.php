@@ -227,7 +227,9 @@ class HtmlreferenceController extends Controller
                     if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)(:([a-zA-Z0-9\s]+))*/',$matches[1],$matches2)) {
                         $name=$matches2[1];
                         $label=$matches2[2];
-						$helptext=$matches2[4];
+                        $helptext="";
+                        if (isset($matches2[4]))
+			$helptext=$matches2[4];
                     }
                    
                    $x=$matches[2];

@@ -178,6 +178,11 @@ class ViewController extends Controller
 			Yii::app()->end();
 		}
 	}
+        public function actionAllVE()
+        {
+            $viewid=$_GET['viewid'];
+            print Viewelements::model()->listViewElementsAsOption($viewid);
+        }
         public function actionSaveView()
         {
 			$site= Sites::model()->findByPk(Yii::app()->session['site_id']);
@@ -188,8 +193,12 @@ class ViewController extends Controller
         }
 		public function actionWriteView()
 		{
-			$site= Sites::model()->findByPk(Yii::app()->session['site_id']);
+//			$site= Sites::model()->findByPk(Yii::app()->session['site_id']);
+  //                      print_r (Yii::app()->session);
+    //                    exit;
+                    $site_id=$_POST['site_id'];
             $viewpath=$_POST['viewpath'];
+            $site= Sites::model()->findByPk($site_id);
 			print SiteImporter::writeViewToDisk($site, $viewpath);
 		}
 		public function actionGetView()

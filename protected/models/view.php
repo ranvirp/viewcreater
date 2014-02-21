@@ -101,4 +101,14 @@ class view extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        public static function listAllAsOptions()
+        {
+           $models = View::model()->findAll();
+           $str='';
+           foreach ($models as $model)
+           {
+               $str.="<option value='".$model->id."'>".$model->name."</option>";
+           }
+           return $str;
+        }
 }

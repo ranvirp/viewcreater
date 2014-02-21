@@ -172,7 +172,8 @@ class ViewelementsController extends Controller
 	}
         public function actionSave()
         {
-            $ve=viewelements::model()->findByAttributes(array('siteid'=>$_POST['siteid'],'viewname'=>$_POST['viewname']));
+            $ve=viewelements::model()->findByAttributes(array('siteid'=>$_POST['siteid'],'viewname'=>$_POST['viewname'],
+                'elemtype'=>$_POST['type']));
             if (empty($ve))
             $ve = new viewelements;
             $ve->elemtype=$_POST['type'];
@@ -182,5 +183,11 @@ class ViewelementsController extends Controller
             $ve->siteid=$_POST['siteid'];
             $ve->viewname=$_POST['viewname'];
             $ve->save();
+        }
+        public function actionGethtml()
+        {
+            $veid=$_GET['veid'];
+            
+            print $this->loadModel($veid)->html;
         }
 }

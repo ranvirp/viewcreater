@@ -108,4 +108,17 @@ class Viewelements extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        public static function listViewElementsAsOption($viewid)
+                
+        {
+            $view=  view::model()->findByPk($viewid);
+        
+            $models=Viewelements::model()->findAllByAttributes(array('siteid'=>$view->site_id,'viewname'=>$view->name));
+            $str='';
+            foreach($models as $model)
+            {
+                $str.='<option value="'.$model->id.'">'.$model->elemtype.'</option>'."\n";
+            }
+            return $str;
+        }
 }

@@ -67,6 +67,38 @@ EOT;
 
 
 <script>
+    // Jquery Plugin 
+    //http://stackoverflow.com/questions/946534/insert-text-into-textarea-with-jquery/946556#946556
+    
+    $.fn.extend({
+  insertAtCaret: function(myValue){
+  var obj;
+  if( typeof this[0].name !='undefined' ) obj = this[0];
+  else obj = this;
+
+  if ($.browser.msie) {
+    obj.focus();
+    sel = document.selection.createRange();
+    sel.text = myValue;
+    obj.focus();
+    }
+  else if ($.browser.mozilla || $.browser.webkit) {
+    var startPos = obj.selectionStart;
+    var endPos = obj.selectionEnd;
+    var scrollTop = obj.scrollTop;
+    obj.value = obj.value.substring(0, startPos)+myValue+obj.value.substring(endPos,obj.value.length);
+    obj.focus();
+    obj.selectionStart = startPos + myValue.length;
+    obj.selectionEnd = startPos + myValue.length;
+    obj.scrollTop = scrollTop;
+  } else {
+    obj.value += myValue;
+    obj.focus();
+   }
+ }
+})
+    
+    //end jquery plugin
 	var vieworfunction='view' //to track what the code displayed is
     var viewsrc='';
     var viewsrc1='';
@@ -115,8 +147,10 @@ EOT;
         editor.on("change", function() {
             clearTimeout(delay);
             delay = setTimeout(function(){$('#code1').val(editor.getValue());
-				if (vieworfunction=='view')
-				$('#layoutinfo').html(editor.getValue());	
+				if (vieworfunction=='view') {
+				$('#layoutinfo').html(editor.getValue());
+                                viewsrc=editor.getValue();
+                                }
 			}, 300);
         });
     });
@@ -425,23 +459,27 @@ EOT;
                       $('#functionspace').addClass('col-md-9');
 					  $.get('<?php echo Yii::app()->createUrl("sites/getview") ?>?view='+view,
 					  function(data){
-						  vieworfunction='';
+						  vieworfunction='view';
+                                                  viewsrc=data;
+                                                  $('#layout').html(data);
 						  editor.setValue(data);
 						  
 					  })
 				  }
 				   function showViewSourceFromDatabase(view)
 				  {
-					  $('#layoutinfo').removeClass('show');
-                      $('#functionspace').removeClass('hide');
-                      $('#layoutinfo').addClass('hide');
-                      $('#functionspace').addClass('show');
+					  $('#layoutinfo').removeClass('hide');
+                      $('#functionspace').removeClass('show');
+                      $('#layoutinfo').addClass('show');
+                      $('#functionspace').addClass('hide');
                       $('#pw').addClass('hide');
                       $('#functionspace').removeClass('col-md-6');
                       $('#functionspace').addClass('col-md-9');
 					  $.get('<?php echo Yii::app()->createUrl("view/getview") ?>?view='+view,
 					  function(data){
-						  vieworfunction='';
+						  vieworfunction='view';
+                                                  viewsrc=data;
+                                                  
 						  editor.setValue(data);
 						  
 					  })
@@ -552,7 +590,7 @@ EOT;
 				   function writeView() 
                   {
                       viewpath = $('#viewname').val()
-                      $.post("<?php echo Yii::app()->createUrl('view/writeview'); ?>",{'viewpath':viewpath},
+                      $.post("<?php echo Yii::app()->createUrl('view/writeview'); ?>",{'viewpath':viewpath,'site_id':$('#siteselect').val()},
 					  function(data){vieworfunction='';editor.setValue(data)})
                   }
 				  function createF()
@@ -684,7 +722,20 @@ EOT;
                       });
                   }
 
-
+function updateviewelement(viewid)
+{
+    
+    $.get("<?php echo Yii::app()->createUrl('view/allVE'); ?>"+'?viewid='+viewid,function (data){$('#viewelement').html(data)})
+}
+function showviewelement(viewelementid)
+{
+   $.get("<?php echo Yii::app()->createUrl('viewelements/gethtml'); ?>"+'?veid='+viewelementid,function (data){$('#rawviewelement').html(data)}) 
+}
+function addViewElementRaw()
+{
+   editor.replaceSelection($('#rawviewelement').html(), focus);
+    editor.focus();
+}
 </script>
 <div class="row">
 	<nav class="navbar navbar-default">
@@ -911,6 +962,31 @@ EOT;
 
 
 	</div>
+</div>
+<div class="row">
+    <nav class="navbar navbar-default">
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+
+			</ul>
+			<div class="navbar-form">
+				<div class="form-group">
+					View Elements:<select id="rawviews" onChange="js:updateviewelement($(this).val())">
+						<?php echo View::model()->listAllAsOptions() ?>
+
+					</select>
+				</div>
+
+				<div class="form-group">
+					Raw View Elements:<select id="viewelement" onChange="js:showviewelement($(this).val())" >
+						
+
+					</select><button class="btn btn-success btn-xs" onclick="js:addViewElementRaw()">Add</button>
+				</div>
+                            <div class="form-group" id="rawviewelement">
+                                
+                            </div>
+                        </div>
 </div>
 
 

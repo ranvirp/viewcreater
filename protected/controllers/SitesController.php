@@ -203,7 +203,7 @@ public function actionAddSiteToSession()
     $site_id=$_GET['site_id'];
     Yii::app()->session['site_id']=$site_id;
     $model = Sites::model()->findByPk($site_id);
-    print $model->path;
+    print $model->path." and site_id is ".Yii::app()->session['site_id'];
 }
 public function actionAllSites()
 {
