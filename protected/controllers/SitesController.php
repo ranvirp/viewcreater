@@ -276,6 +276,23 @@ public function actionImport()
 	$site = Sites::model()->findByPk($site_id);
     SiteImporter::import($site);
 }
+public function actionAllThemes()
+{
+    $models=  htmlreference::model()->findAll(array(
+    'select'=>'t.cssframeworkname',
+    'distinct'=>true,
+));
+    foreach ($models as $model)
+    {
+        print "<option value='".$model->cssframeworkname."'>".$model->cssframeworkname."</option>";
+    }
+}
+public function actionSetTheme()
+{
+   $csstype=$_GET['csstype']; 
+   Yii::app()->session['theme']=$csstype;
+	
+}
 public function populateControllers()
 {
     

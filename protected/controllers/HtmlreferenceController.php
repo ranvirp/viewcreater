@@ -77,6 +77,7 @@ class HtmlreferenceController extends Controller
                         $model->htmltype=$_POST['htmlreference']['htmltype'];
                         $model->dummycode=$_POST['htmlreference']['dummycode'];
                         $model->container=$_POST['htmlreference']['container'];
+                        $model->cssframeworkname=$_POST['htmlreference']['cssframeworkname'];
                         
                         
                         
@@ -110,6 +111,7 @@ class HtmlreferenceController extends Controller
                         $model->dummycode=$_POST['htmlreference']['dummycode'];
                         $model->id=$_POST['htmlreference']['id'];
                         $model->container=$_POST['htmlreference']['container'];
+                         $model->cssframeworkname=$_POST['htmlreference']['cssframeworkname'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

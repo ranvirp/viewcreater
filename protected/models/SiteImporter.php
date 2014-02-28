@@ -83,10 +83,12 @@ class SiteImporter {
 		$viewModel->code=$content;
 		$viewModel->last_updated_at=time();
 		//return print_r($viewModel);
-		if (!$viewModel->save())
-			 return print_r($viewModel->getErrors());
+		if (!$viewModel->save()){
+                    
+			 return print_r($viewModel->getErrors()).$diskPath;
+                }
 		else 
-			 return $viewModel->code;
+			 return $diskPath;
 		
 	}
 	public static function writeViewToDisk($site,$path)

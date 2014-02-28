@@ -108,8 +108,9 @@ class htmlreference extends CActiveRecord
          public static function listAllAsOptions()
         {
 			 $criteria = new CDbCriteria(array('order'=>'htmltype ASC'));
+                         $theme=Yii::app()->session['theme'];
 
-            $models=htmlreference::model()->findAllByAttributes(array('container'=>'n'),$criteria);
+            $models=htmlreference::model()->findAllByAttributes(array('container'=>'n','cssframeworkname'=>$theme),$criteria);
             foreach ($models as $model)
             {
                 echo '<option value="'.$model->id.'">'.$model->htmltype.'</option>';

@@ -6,6 +6,11 @@
               value="<?php echo $model->htmltype;?>"/>
     </div>
       <div class="form-group">
+      <label for="htmlreference[cssframeworkname]">Css Framework Name</label>
+      <input type="text" class="form-control" name="htmlreference[cssframeworkname]" placeholder="Enter CSS Framework" 
+              value="<?php echo $model->cssframeworkname;?>"/>
+    </div>
+      <div class="form-group">
       <label for="htmlreference[container]">Container</label>
       <select  class="form-control" name="htmlreference[container]"  >
 		  <option value="n" selected>No</option>

@@ -115,8 +115,12 @@ EOT;
         selecteddiv=$('#layoutinfo');
         $('#yw0').append('<li>Site:<select id="siteselect"></select><button id="siteselect-btn">Change</button></li>');
 		$('#yw0').append('<li><button id="import-btn">Import</button></li>');
+                $('#yw0').append('<li>Theme:<select id="themeselect"></select><button id="themeselect-btn">Change</button></li>');
+		
         $('#import-btn').click(function(){$.get('<?php echo Yii::app()->createUrl("sites/import"); ?>')});
+        $('#themeselect-btn').click(function(){$.get('<?php echo Yii::app()->createUrl("sites/setTheme"); ?>?csstype='+$('#themeselect').val())});
         $.get('<?php echo Yii::app()->createUrl('sites/allsites'); ?>',function (data){$('#siteselect').html(data)})
+        $.get('<?php echo Yii::app()->createUrl('sites/allThemes'); ?>',function (data){$('#themeselect').html(data)})
         
 		$.get('<?php echo Yii::app()->createUrl('sites/allC'); ?>',function (data){$('#controller-select').html(data)})
 		$.get('<?php echo Yii::app()->createUrl('sites/allM'); ?>',function (data){$('#model-select').html(data)})
@@ -888,7 +892,7 @@ function addViewElementRaw()
 							<div class="panel panel-default panel-success">
 								<div class="panel-heading"> Controller Info</div>
 								<div class="panel-body">
-									<label for="controller-select">Controllers:</label>
+									<label for="contrcd </label>
 									<select id="controller-select" class="form-control input-sm" onChange="js:populateF($(this).val(),'cf-select')">
 										<option value="Hi">Hi</option>
 									</select>

@@ -589,7 +589,7 @@ class CController1
 		$moduleViewPath=$basePath=YiiBase1::app()->getViewPath();
 		if(($module=$this->getModule())!==null)
 			$moduleViewPath=$module->getViewPath();
-		return $this->resolveViewFile($viewName,$this->getViewPath(),$basePath,$moduleViewPath);
+		return $this->resolveViewFile1($viewName,$this->getViewPath(),$basePath,$moduleViewPath);
 	}
 
 	/**
@@ -716,7 +716,39 @@ class CController1
 		else
 			return false;
 	}
+public function resolveViewFile1($viewName,$viewPath,$basePath,$moduleViewPath=null)
+	{
+		if(empty($viewName))
+			return false;
 
+		if($moduleViewPath===null)
+			$moduleViewPath=$basePath;
+
+		if(($renderer=YiiBase1::app()->getViewRenderer())!==null)
+			$extension=$renderer->fileExtension;
+		else
+			$extension='.php';
+		if($viewName[0]==='/')
+		{
+			if(strncmp($viewName,'//',2)===0)
+				$viewFile=$basePath.$viewName;
+			else
+				$viewFile=$moduleViewPath.$viewName;
+		}
+		elseif(strpos($viewName,'.'))
+			$viewFile=YiiBase1::getPathOfAlias($viewName);
+		else
+			$viewFile=$viewPath.DIRECTORY_SEPARATOR.$viewName;
+
+		if(is_file($viewFile.$extension))
+			return YiiBase1::app()->findLocalizedFile($viewFile.$extension);
+		//elseif($extension!=='.php' && is_file($viewFile.'.php'))
+                elseif($extension!=='.php')
+		
+			return YiiBase1::app()->findLocalizedFile($viewFile.'.php');
+		else
+			return false;
+	}
 	/**
 	 * Returns the list of clips.
 	 * A clip is a named piece of rendering result that can be
