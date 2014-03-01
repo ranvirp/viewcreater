@@ -21,5 +21,62 @@ $model=new htmlreference;
 Models::importModelFile();
 //$this->render('test',array('griddataprovider'=>$gridDataProvider,'model'=>$model));
 }
+public function actionTest()
+{
+    
+   // $file =file("'".str_replace("\\","\\",Yii::getPathOfAlias("bootstrap.helpers.TbHtml")).".php'");
+    $file =file("d:\\xampp\\htdocs\\viewcreater\protected\\extensions\\yiistrap\\helpers\\TbHtml.php",FILE_IGNORE_NEW_LINES);
+    $ref = new ReflectionClass("TbHtml");
+$methods=$ref->getMethods();
 
+foreach ($methods as  $method)
+{
+    $name=$method->getName();
+     if (preg_match("/active(.*)ControlGroup/",$name,$matches))
+    {
+         $hr=new htmlreference();
+    //$widgetName = preg_split("/ControlGroup/",$name);
+    $widgetName=$matches[1];
+   
+        //print $widgetName."-".$name."<br>";
+        $parameters=$method->getParameters();
+        $str=array();
+        $str1[]=array();
+        $i=0;
+        
+        foreach ($parameters as $parameter)
+        {
+            $i++;
+            $line=$method->getStartLine();
+            if ($parameter->name=="htmlOptions")
+            {
+                $str[]="array('nv','htmlOptions:Options:Add Html Options in name value format','name:Option Name:Name of Html Option example size','value:Value:Value of Html Option')";
+            
+                $str1[]='%(htmlOptions)s';
+            }
+            else 
+                if ($parameter->name=="model")
+            {
+                
+            }
+            else
+            {
+                 $str1[]='%('.$parameter->name.')s';
+                $str[]="'".$parameter->name.":".$parameter->name.":".preg_replace("/(@param)|\*/","",$file[$line-3-(count($parameters)+2-$i)])."'";
+            }
+          
+        }
+         $hr->cssframeworkname="yiistrap";
+        // print $name;
+         $x="?>";
+        $hr->code='<?php echo $form->'.$name."(\$model,\%(attribute)s',";
+        //.implode(",",$str1).");";
+        
+          $hr->parameters= "array(".implode(",",$str).")";
+          $hr->dummycode="<p>".$name."</p>";
+          $hr->htmltype=$name;
+         // $hr->save();
+    }
+}
+}
 }

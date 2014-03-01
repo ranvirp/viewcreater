@@ -12,12 +12,15 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
-
+'aliases'=>array(
+  'bootstrap'=>'application.extensions.yiistrap',  
+),
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-                'application.extenstios.yii-bootstrap.components.*',
+                'application.extensions.yiistrap.components.*',
+            'application.extensions.yiistrap.helpers.*',
 	),
 
 	'modules'=>array(

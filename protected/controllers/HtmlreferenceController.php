@@ -217,6 +217,7 @@ class HtmlreferenceController extends Controller
             if (!is_array($string))
             eval("\$string=$string;");
             $str='';
+            $helptext="";
            // $string=array("a:Arami" , "'b:Bharat', ('x','y','z')",array("d:Arami" , "'b:Bharat', ('x','y','z')"));
             foreach ($string as $s)
             {
@@ -229,9 +230,10 @@ class HtmlreferenceController extends Controller
                     if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)(:([a-zA-Z0-9\s]+))*/',$matches[1],$matches2)) {
                         $name=$matches2[1];
                         $label=$matches2[2];
-                        $helptext="";
-                        if (isset($matches2[4]))
+                        
+                        if (isset($matches2[4])) {
 			$helptext=$matches2[4];
+                        }
                     }
                    
                    $x=$matches[2];
@@ -280,7 +282,8 @@ class HtmlreferenceController extends Controller
           if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)(:([a-zA-Z0-9\s]+)*)/',$name,$matches2)) {
                         $name=$matches2[1];
                         $label=$matches2[2];
-						$helptext=$matches2[4];
+                        if (isset($matches2[4]))
+			  $helptext=$matches2[4];
                     }
          
           if (!is_array($string))
@@ -300,6 +303,7 @@ class HtmlreferenceController extends Controller
                     if (preg_match('/([a-zA-Z0-9]+):([a-zA-Z0-9\s]+)(:([a-zA-Z0-9\s]+))*/',$matches[1],$matches2)) {
                         $name1=$matches2[1];
                         $label1=$matches2[2];
+                         if (isset($matches2[4]))
 						$helptext1=$matches2[4];
                     }
                    
@@ -337,7 +341,8 @@ class HtmlreferenceController extends Controller
             }
             
           //$str=str_replace("parameter-name","p-n",$str);
-                 
+           if (!isset($helptext))
+               $helptext="";
           $str1 = <<<EOT
           
 <input class="parameters"  type="hidden" parameter-type="%(id)s" parameter-name="$name"   value='array()'/>
