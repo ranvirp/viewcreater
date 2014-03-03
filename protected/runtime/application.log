@@ -2211,3 +2211,262 @@ Stack trace:
 REQUEST_URI=/viewcreater/index.php/test/test
 in D:\xampp\htdocs\viewcreater\protected\controllers\testController.php (72)
 in D:\xampp\htdocs\viewcreater\index.php (13)
+2014/03/02 06:41:21 [error] [php] file('/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/extensions/yiistrap/helpers/TbHtml.php') [<a href='function.file'>function.file</a>]: failed to open stream: No such file or directory (/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php:27)
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#2 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#3 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#4 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#5 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (27)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2014/03/02 06:46:49 [error] [exception.CException] exception 'CException' with message 'testController cannot find the requested view "htmlreference/view".' in /Users/mac/framework/web/CController.php:879
+Stack trace:
+#0 /Users/mac/framework/web/CController.php(783): CController->renderPartial('htmlreference/v...', Array, true)
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(79): CController->render('htmlreference/v...', Array)
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/mac/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Users/mac/framework/web/CWebApplication.php(276): CController->run('test')
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('test/test')
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/viewcreater/index.php/test/test
+---
+2014/03/02 06:53:54 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Invalid request. Please do not repeat this request again.' in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php:140
+Stack trace:
+#0 /Users/mac/framework/web/actions/CInlineAction.php(50): HtmlreferenceController->actionDelete()
+#1 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#2 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#3 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#5 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#7 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#8 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /Users/mac/framework/web/CWebApplication.php(276): CController->run('delete')
+#10 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('htmlreference/d...')
+#11 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/viewcreater/index.php/htmlreference/delete/76
+---
+2014/03/02 06:54:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php:195
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php(58): HtmlreferenceController->loadModel()
+#1 /Users/mac/framework/web/actions/CInlineAction.php(50): HtmlreferenceController->actionView()
+#2 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#9 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/mac/framework/web/CWebApplication.php(276): CController->run('view')
+#11 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('htmlreference/v...')
+#12 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/viewcreater/index.php/htmlreference/76
+---
+2014/03/02 06:54:24 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Invalid request. Please do not repeat this request again.' in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/HtmlreferenceController.php:140
+Stack trace:
+#0 /Users/mac/framework/web/actions/CInlineAction.php(50): HtmlreferenceController->actionDelete()
+#1 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#2 /Users/mac/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#3 /Users/mac/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /Users/mac/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#5 /Users/mac/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 /Users/mac/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#7 /Users/mac/framework/web/CController.php(292): CFilterChain->run()
+#8 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /Users/mac/framework/web/CWebApplication.php(276): CController->run('delete')
+#10 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('htmlreference/d...')
+#11 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/viewcreater/index.php/htmlreference/delete/76
+---
+2014/03/02 19:16:32 [error] [php] include(TbActiveForm.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(29): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#5 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#6 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (29)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2014/03/02 19:17:51 [error] [php] include(TbActiveForm.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(29): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#5 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#6 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (29)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2014/03/02 19:24:09 [error] [php] include(TbActiveForm.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#5 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#6 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (30)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2014/03/02 19:26:30 [error] [php] include(TbActiveForm.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#5 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#6 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (30)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2014/03/02 19:27:35 [error] [php] include(bootstrap.widgets.TbActiveForm.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#5 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#6 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (30)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2014/03/02 19:28:40 [error] [exception.ReflectionException] exception 'ReflectionException' with message 'Class /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/extensions/yiistrap/widgets/TbActiveForm does not exist' in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php:30
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct('/Applications/X...')
+#1 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#2 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /Users/mac/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#4 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Users/mac/framework/web/CWebApplication.php(276): CController->run('test')
+#6 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('test/test')
+#7 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/viewcreater/index.php/test/test
+---
+2014/03/02 19:29:02 [error] [php] include(/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/extensions/yiistrap/widgets/TbActiveForm/php.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#5 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#6 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (30)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2014/03/02 19:29:49 [error] [php] include(/Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/extensions/yiistrap/widgets/TbActiveForm.php.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#5 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#6 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (30)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2014/03/02 19:30:07 [error] [exception.ReflectionException] exception 'ReflectionException' with message 'Class /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/extensions/yiistrap/widgets/TbActiveForm does not exist' in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php:30
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct('/Applications/X...')
+#1 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#2 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /Users/mac/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#4 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Users/mac/framework/web/CWebApplication.php(276): CController->run('test')
+#6 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('test/test')
+#7 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/viewcreater/index.php/test/test
+---
+2014/03/02 19:31:48 [error] [exception.ReflectionException] exception 'ReflectionException' with message 'Class /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/extensions/yiistrap/widgets/TbActiveForm does not exist' in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php:30
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct('/Applications/X...')
+#1 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#2 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /Users/mac/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#4 /Users/mac/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Users/mac/framework/web/CWebApplication.php(276): CController->run('test')
+#6 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController('test/test')
+#7 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/viewcreater/index.php/test/test
+---
+2014/03/02 19:32:12 [error] [php] include(TbActiveForm.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#5 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#6 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (30)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)
+2014/03/02 19:32:48 [error] [php] include(TbActiveForm.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (/Users/mac/framework/YiiBase.php:418)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php(30): ReflectionClass->__construct()
+#2 /Users/mac/framework/web/actions/CInlineAction.php(50): testController->actionTest()
+#3 /Users/mac/framework/web/CController.php(309): CInlineAction->runWithParams()
+#4 /Users/mac/framework/web/CController.php(287): testController->runAction()
+#5 /Users/mac/framework/web/CController.php(266): testController->runActionWithFilters()
+#6 /Users/mac/framework/web/CWebApplication.php(276): testController->run()
+#7 /Users/mac/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#8 /Users/mac/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php(13): CWebApplication->run()
+REQUEST_URI=/viewcreater/index.php/test/test
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/protected/controllers/TestController.php (30)
+in /Applications/XAMPP/xamppfiles/htdocs/viewcreater/index.php (13)

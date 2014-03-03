@@ -71,7 +71,8 @@ class SiteImporter {
 		$yii;
 		eval("\$yii=yii$siteId::createWebApplication(\$config);");
 		eval("\$cc=new CController1();");
-		$diskPath= $cc->getViewFile($path);
+		//$diskPath= $cc->getViewFile($path);
+		$diskPath=$site->path."/protected/views/".$path.".php";
 		$viewModel=View::model()->findByAttributes(array('site_id'=>$siteId,'name'=>$path));
 		if (!$viewModel)
 		  $viewModel = new View;
@@ -106,9 +107,11 @@ class SiteImporter {
 		$yii;
 		eval("\$yii=yii$siteId::createWebApplication(\$config);");
 		eval("\$cc=new CController1();");
-		$diskPath= $cc->getViewFile($path);
+		//$diskPath= $cc->getViewFile($path);
+		$diskPath=$viewModel->path;
 		//$diskPath='/Applications/XAMPP/xamppfiles/htdocs/rdp/protected/views/test/test.php';
 		$x= file_put_contents($diskPath,$viewModel->code);
+		chmod($diskPath, 0777);
 		if ($x)
 		return "Success writing to $diskPath";
 		else 

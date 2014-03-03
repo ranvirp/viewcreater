@@ -24,59 +24,87 @@ Models::importModelFile();
 public function actionTest()
 {
     
-   // $file =file("'".str_replace("\\","\\",Yii::getPathOfAlias("bootstrap.helpers.TbHtml")).".php'");
-    $file =file("d:\\xampp\\htdocs\\viewcreater\protected\\extensions\\yiistrap\\helpers\\TbHtml.php",FILE_IGNORE_NEW_LINES);
-    $ref = new ReflectionClass("TbHtml");
+    $file =file(str_replace("\\","\\",Yii::getPathOfAlias("bootstrap.widgets.TbActiveForm")).".php");
+    //$file =file("d:\\xampp\\htdocs\\viewcreater\protected\\extensions\\yiistrap\\helpers\\TbHtml.php",FILE_IGNORE_NEW_LINES);
+
+	$ref = new ReflectionClass("TbActiveForm");
+
 $methods=$ref->getMethods();
 
 foreach ($methods as  $method)
 {
     $name=$method->getName();
-     if (preg_match("/active(.*)ControlGroup/",$name,$matches))
+	 $line=$method->getStartLine();
+	 $endcommentline=$line;
+	  	
+     if (preg_match("/(.*)ControlGroup/",$name,$matches))
     {
+		  while (!preg_match("/@return/",$file[$endcommentline]))
+	   {
+		   $endcommentline--;
+	   }
+	
          $hr=new htmlreference();
     //$widgetName = preg_split("/ControlGroup/",$name);
-    $widgetName=$matches[1];
+    //$widgetName=$matches[1];
    
         //print $widgetName."-".$name."<br>";
         $parameters=$method->getParameters();
         $str=array();
-        $str1[]=array();
+        $str1=array();
         $i=0;
         
         foreach ($parameters as $parameter)
         {
             $i++;
-            $line=$method->getStartLine();
             if ($parameter->name=="htmlOptions")
             {
                 $str[]="array('nv','htmlOptions:Options:Add Html Options in name value format','name:Option Name:Name of Html Option example size','value:Value:Value of Html Option')";
             
-                $str1[]='%(htmlOptions)s';
+                $str1[]="%(htmlOptions)s";
             }
             else 
                 if ($parameter->name=="model")
             {
-                
+              $str1[]='$model';   
+            }
+			else 
+                if ($parameter->name=="data")
+            {
+              $str1[]="%(".$parameter->name.")s";
+                $str[]="'".$parameter->name.":".$parameter->name.":".preg_replace("/(@param)|\*/","",$file[$line-3-(count($parameters)+2-$i)])."'";
+         
             }
             else
             {
-                 $str1[]='%('.$parameter->name.')s';
-                $str[]="'".$parameter->name.":".$parameter->name.":".preg_replace("/(@param)|\*/","",$file[$line-3-(count($parameters)+2-$i)])."'";
+				if (preg_match('/string/',$file[$endcommentline-(count($parameters)+1-$i)]))
+                 $str1[]="'%(".$parameter->name.")s'";
+				else 
+					$str1[]="%(".$parameter->name.")s";
+                $str[]="'".$parameter->name.":".$parameter->name.":".preg_replace("/(@param)|\*/","",$file[$endcommentline-(count($parameters)+1-$i)])."'";
             }
           
         }
-         $hr->cssframeworkname="yiistrap";
+          
+		 $hr->cssframeworkname="yiistrap";
         // print $name;
          $x="?>";
-        $hr->code='<?php echo $form->'.$name."(\$model,\%(attribute)s',";
-        //.implode(",",$str1).");";
+        $hr->code='<?php echo $form->'.$name."(".implode(",",$str1).");?>";
         
           $hr->parameters= "array(".implode(",",$str).")";
+		  print $hr->code."<br>".$hr->parameters."<br>";
           $hr->dummycode="<p>".$name."</p>";
           $hr->htmltype=$name;
-         // $hr->save();
+		  $hr->container='n';
+          if ($hr->save())
+		  {
+			 // $this->render('/htmlreference/view',array('model'=>$hr));
+			  //exit;
+			  print $hr->id."<br>";
+		  } 
     }
+	
+		 
 }
 }
 }

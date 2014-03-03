@@ -19,8 +19,13 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-                'application.extensions.yiistrap.components.*',
-            'application.extensions.yiistrap.helpers.*',
+              'application.extensions.yiistrap.components.*',
+
+'application.extensions.yiistrap.helpers.*',
+		'application.extensions.yiistrap.behaviors.*',
+
+'application.extensions.yiistrap.widgets.*',
+
 	),
 
 	'modules'=>array(

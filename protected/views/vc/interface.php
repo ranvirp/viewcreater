@@ -892,7 +892,7 @@ function addViewElementRaw()
 							<div class="panel panel-default panel-success">
 								<div class="panel-heading"> Controller Info</div>
 								<div class="panel-body">
-									<label for="contrcd </label>
+									<label for="controller-select"> </label>
 									<select id="controller-select" class="form-control input-sm" onChange="js:populateF($(this).val(),'cf-select')">
 										<option value="Hi">Hi</option>
 									</select>
